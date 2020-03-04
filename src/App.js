@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './adapters/sessionsAdapter';
 
@@ -15,6 +16,7 @@ class App extends React.Component {
       <div className="App">
         Hello World!
         <Login />
+        <Logout />
       </div>
     );
   }
