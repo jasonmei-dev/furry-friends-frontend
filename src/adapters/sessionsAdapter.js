@@ -1,4 +1,4 @@
-import { setCurrentUser } from '../actions/currentUser';
+import { setCurrentUser, clearCurrentUser } from '../actions/currentUser';
 
 export const login = credentials => {
   return dispatch => {
@@ -32,13 +32,17 @@ export const getCurrentUser = () => {
       }
     })
     .then(response => response.json())
-    .then(resp => {
-      if (resp.error) {
-        alert(resp.error)
-      } else {
-        dispatch(setCurrentUser(resp))
-      }
-    })
+    .then(resp => dispatch(setCurrentUser(resp)))
     .catch(console.log)
+  }
+}
+
+export const logout = event => {
+  return dispatch => {
+    dispatch(clearCurrentUser())
+    return fetch("http://localhost:3001/api/v1/logout", {
+      credentials: "include",
+      method: "DELETE"
+    })
   }
 }
