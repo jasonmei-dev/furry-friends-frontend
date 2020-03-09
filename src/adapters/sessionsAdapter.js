@@ -1,8 +1,9 @@
 import { setCurrentUser, clearCurrentUser } from '../actions/currentUser';
+import { resetLoginForm } from '../actions/loginForm';
 
 export const login = credentials => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/login", {
+    fetch("http://localhost:3001/api/v1/login", {
       credentials: "include",
       method: "POST",
       headers: {
@@ -16,6 +17,7 @@ export const login = credentials => {
         alert(resp.error)
       } else {
         dispatch(setCurrentUser(resp))
+        dispatch(resetLoginForm())
       }
     })
     .catch(console.log)
@@ -24,7 +26,7 @@ export const login = credentials => {
 
 export const getCurrentUser = () => {
   return dispatch => {
-    return fetch("http://localhost:3001/api/v1/get_current_user", {
+    fetch("http://localhost:3001/api/v1/get_current_user", {
       credentials: "include",
       method: "GET",
       headers: {
@@ -40,7 +42,7 @@ export const getCurrentUser = () => {
 export const logout = event => {
   return dispatch => {
     dispatch(clearCurrentUser())
-    return fetch("http://localhost:3001/api/v1/logout", {
+    fetch("http://localhost:3001/api/v1/logout", {
       credentials: "include",
       method: "DELETE"
     })
