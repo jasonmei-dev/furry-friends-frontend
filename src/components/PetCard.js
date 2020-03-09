@@ -1,8 +1,10 @@
 import React from 'react';
 
 const PetCard = ({ petObject }) => {
-  // debugger;
-  let imgUrl = petObject.photos[0]
+  let imgUrl
+  const petPhotos = petObject.photos
+
+  petPhotos.length === 0 ? imgUrl = "" : imgUrl = petPhotos[0].medium
 
   return (
     <div className='PetCard' id={petObject.id}>
