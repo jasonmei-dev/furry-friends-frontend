@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateLoginForm } from '../actions/loginForm';
-import { login } from '../adapters/sessionsAdapter';
+import { login } from '../adapters/SessionsAdapter';
 
 const Login = ({ loginForm, updateLoginForm, login }) => {
 

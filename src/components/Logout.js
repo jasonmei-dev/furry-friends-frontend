@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logout } from '../adapters/sessionsAdapter';
+import { logout } from '../adapters/SessionsAdapter';
 
 const Logout = ({ logout }) => {
 
