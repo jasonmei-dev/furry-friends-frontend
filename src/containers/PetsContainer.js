@@ -27,7 +27,7 @@ class PetsContainer extends Component {
   render() {
     return (
       <div className='PetsContainer'>
-        Pets
+        <h3>Furry Friends for Adoption Near You</h3>
         {this.handleLoading()}
       </div>
     )
