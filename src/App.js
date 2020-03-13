@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './adapters/SessionsAdapter';
 import PetsContainer from './containers/PetsContainer';
 import NavBar from './components/Navbar';
-import Welcome from './components/Welcome'
+import Welcome from './components/Welcome';
+import SignUp from './components/SignUp';
 
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
       <div className="App">
       { loggedIn ? <NavBar /> : <Welcome /> }
       { loggedIn? <PetsContainer /> : null }
+      <SignUp />
       </div>
     );
   }
