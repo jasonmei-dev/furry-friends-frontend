@@ -1,15 +1,24 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Logout from './Logout'
 
 
 const Navbar = ({ loggedIn, currentUser }) => {
+
+  if (!loggedIn) {
+    return (
+      <div className="Navbar">
+        <Link to="/">Home</Link>
+      </div>
+    )
+  }
+
   return (
     <div className="Navbar">
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/pets">Browse</NavLink>
-      <NavLink to="/profile">{currentUser.first_name}</NavLink>
+      <Link to="/">Home</Link>
+      <Link to="/pets">Browse</Link>
+      <Link to="/profile">{currentUser.first_name}</Link>
       <Logout />
     </div>
   )
