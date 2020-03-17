@@ -2,11 +2,10 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './adapters/SessionsAdapter';
-import PetsContainer from './containers/PetsContainer';
-import NavBar from './components/Navbar';
-import Welcome from './components/Welcome';
+import Navbar from './components/Navbar';
 import SignUp from './components/SignUp';
-
+import Home from './components/Home';
+import { Route } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -15,23 +14,14 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn } = this.props
-
     return (
       <div className="App">
-      { loggedIn ? <NavBar /> : <Welcome /> }
-      { loggedIn? <PetsContainer /> : null }
-      <SignUp />
+        <Navbar />
+        <Route exact path= "/" component={Home} />
+        <Route exact path="/signup" component={SignUp} />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ currentUser }) => {
-  return ({
-    loggedIn: !!currentUser,
-    currentUser
-  })
-}
-
-export default connect(mapStateToProps, { getCurrentUser })(App);
+export default connect(null, { getCurrentUser })(App);
