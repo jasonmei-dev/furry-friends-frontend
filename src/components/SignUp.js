@@ -20,17 +20,20 @@ const SignUp = ({ signupForm, updateSignUpForm, signup }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type='text' name='first_name' placeholder='First Name' value={signupForm.first_name} onChange={handleInputChange}/><br/>
-      <input type='text' name='last_name' placeholder='Last Name' value={signupForm.last_name} onChange={handleInputChange}/><br/>
-      <input type='text' name='email' placeholder='Email' value={signupForm.email} onChange={handleInputChange}/><br/>
-      <input type='text' name='password' placeholder="Password" value={signupForm.password} onChange={handleInputChange}/><br/>
-      <input type='text' name='city' placeholder='City' value={signupForm.city} onChange={handleInputChange}/><br/>
-      <input type='text' name='state' placeholder='State' value={signupForm.state} onChange={handleInputChange}/><br/>
-      <input type='text' name='country' placeholder='Country' value={signupForm.country} onChange={handleInputChange}/><br/>
-      <input type='text' name='postcode' placeholder='Post Code' value={signupForm.postcode} onChange={handleInputChange}/><br/>
-      <input type='submit' value='Sign Up' />
-    </form>
+    <div>
+      <h3>Sign Up</h3>
+      <form onSubmit={handleSubmit}>
+        <input type='text' name='first_name' placeholder='First Name' value={signupForm.first_name} onChange={handleInputChange}/><br/>
+        <input type='text' name='last_name' placeholder='Last Name' value={signupForm.last_name} onChange={handleInputChange}/><br/>
+        <input type='text' name='email' placeholder='Email' value={signupForm.email} onChange={handleInputChange}/><br/>
+        <input type='text' name='password' placeholder="Password" value={signupForm.password} onChange={handleInputChange}/><br/>
+        <input type='text' name='city' placeholder='City' value={signupForm.city} onChange={handleInputChange}/><br/>
+        <input type='text' name='state' placeholder='State' value={signupForm.state} onChange={handleInputChange}/><br/>
+        <input type='text' name='country' placeholder='Country' value={signupForm.country} onChange={handleInputChange}/><br/>
+        <input type='text' name='postcode' placeholder='Post Code' value={signupForm.postcode} onChange={handleInputChange}/><br/>
+        <input type='submit' value='Sign Up' />
+      </form>
+    </div>
   )
 };
 
