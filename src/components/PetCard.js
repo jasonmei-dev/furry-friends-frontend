@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PetCard = ({ petObject }) => {
   let imgUrl
@@ -18,7 +19,7 @@ const PetCard = ({ petObject }) => {
         </div>
 
         <button className='pet-save-button'>Add</button>
-        <button className='pet-details-button'>Details</button>
+        <Link className='pet-details-button'>Details</Link>
       </div>
     </div>
   )
