@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
 import { Route } from 'react-router-dom';
+import PetsContainer from './containers/PetsContainer'
 
 class App extends React.Component {
 
@@ -17,7 +18,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar />
-        <Route exact path= "/" component={Home} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/pets" component={PetsContainer}/>
+        <Route exact path="/pets/:id" />
+        <Route eaact path="/profile" />
         <Route exact path="/signup" component={SignUp} />
       </div>
     );
