@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import Logout from './Logout'
 
 
-const Navbar = ({ loggedIn, currentUser }) => {
-
-  if (!loggedIn) {
+const Navbar = (props) => {
+  console.log(props)
+  if (!props.loggedIn) {
     return (
       <div className="Navbar">
         <Link to="/">Home</Link>
@@ -14,11 +14,19 @@ const Navbar = ({ loggedIn, currentUser }) => {
     )
   }
 
+  let types = ['Dog', 'Cat', 'Rabbit', 'Small & Furry', 'Horse', 'Bird', 'Scales, Fins & Other', 'Barnyard']
+
   return (
     <div className="Navbar">
       <Link to="/">Home</Link>
       <Link to="/pets">Browse</Link>
-      <Link to="/profile">{currentUser.first_name}</Link>
+      <select>
+        <option value="">Search</option>
+        {types.map(type => {
+          return <option key={type} value={type}>{type}</option>
+        })}
+      </select>
+      <Link to="/profile">{props.currentUser.attributes.first_name}</Link>
       <Logout />
     </div>
   )
