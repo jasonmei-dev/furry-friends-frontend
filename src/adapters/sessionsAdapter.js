@@ -17,7 +17,7 @@ export const login = credentials => {
       if (resp.error) {
         alert(resp.error)
       } else {
-        dispatch(setCurrentUser(resp))
+        dispatch(setCurrentUser(resp.data))
         dispatch(resetLoginForm())
       }
     })
@@ -35,7 +35,7 @@ export const getCurrentUser = () => {
       }
     })
     .then(response => response.json())
-    .then(resp => dispatch(setCurrentUser(resp)))
+    .then(resp => dispatch(setCurrentUser(resp.data)))
     .catch(console.log)
   }
 }
