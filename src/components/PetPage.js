@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PetDetails from './PetDetails';
-import { connect } from 'react-redux'
+import PetCarousel from './PetCarousel';
+import { connect } from 'react-redux';
 import { getCurrentPet } from '../adapters/PetsAdapter';
 
 class PetPage extends Component {
@@ -18,6 +19,7 @@ class PetPage extends Component {
     } else {
       return (
         <div>
+          <PetCarousel currentPet={pet} />
           <PetDetails currentPet={pet} />
         </div>
       )
