@@ -11,10 +11,8 @@ class PetsContainer extends Component {
 
   handleLoading = () => {
     const { pets, loading } = this.props;
-
     if (loading) {
-      console.log('Loading...')
-      return <div>Loading...</div>
+      return <p>Loading Pets...</p>
     } else {
       return <div>
         {pets.map(pet => {
@@ -37,7 +35,7 @@ class PetsContainer extends Component {
 const mapStateToProps = state => {
   return ({
     pets: state.petfinder.pets,
-    loading: state.loading
+    loading: state.petfinder.loading
   })
 }
 
