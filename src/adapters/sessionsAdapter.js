@@ -68,7 +68,7 @@ export const signup = formData => {
       if (resp.error) {
         alert(resp.error)
       } else {
-        dispatch(setCurrentUser(resp))
+        dispatch(setCurrentUser(resp.data))
         dispatch(resetSignUpForm())
       }
     })
