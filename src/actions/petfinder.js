@@ -5,7 +5,6 @@ export const loadingPets = () => {
 }
 
 export const getPets = pets => {
-  // debugger;
   return {
     type: "GET_PETS",
     pets
