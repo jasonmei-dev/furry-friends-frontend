@@ -6,7 +6,7 @@ const PetCard = ({ petObject }) => {
   const petPhotos = petObject.photos
 
   petPhotos.length === 0 ? imgUrl = "" : imgUrl = petPhotos[0].medium
-
+  // console.log(petObject)
   return (
     <div className='PetCard' id={petObject.id}>
       <div className='pet-image-container'>
@@ -19,7 +19,12 @@ const PetCard = ({ petObject }) => {
         </div>
 
         <button className='pet-save-button'>Add</button>
-        <Link className='pet-details-button'>Details</Link>
+
+        <button className='pet-details-button'>
+          <span className='pet-card-link'>
+            <Link to={`/pets/${petObject.id}`}>Details</Link>
+          </span>
+        </button>
       </div>
     </div>
   )
