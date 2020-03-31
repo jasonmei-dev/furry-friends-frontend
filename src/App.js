@@ -7,6 +7,8 @@ import SignUp from './components/SignUp';
 import Home from './components/Home';
 import { Route } from 'react-router-dom';
 import PetsContainer from './containers/PetsContainer'
+import Profile from './components/Profile';
+import PetPage from './components/PetPage';
 
 class App extends React.Component {
 
@@ -20,8 +22,11 @@ class App extends React.Component {
         <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/pets" component={PetsContainer}/>
-        <Route exact path="/pets/:id" />
-        <Route eaact path="/profile" />
+        <Route exact path="/pets/:id" render={petProps => {
+          let id = petProps.match.params.id
+          return <PetPage petId={id} />
+        }}/>
+        <Route exact path="/profile" component={Profile}/>
         <Route exact path="/signup" component={SignUp} />
       </div>
     );
