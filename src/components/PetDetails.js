@@ -1,20 +1,11 @@
 import React from 'react';
 
 const PetDetails = ({ currentPet }) => {
-  const { name, species, breeds, age, gender, size, status, contact, photos } = currentPet
-  let imgUrl
-
-  photos.length === 0 ? imgUrl = "" : imgUrl = photos[0].medium
-  console.log(currentPet)
+  const { name, species, breeds, age, gender, size, status, contact } = currentPet
+  // console.log(currentPet)
 
   return (
     <div className='PetDetails'>
-      <div className='pet-image-container'>
-        {photos.map(photo => {
-          return <img className='pet-image' alt={name} src={photo.medium}></img>
-        })}
-      </div>
-
       <h1>{name}</h1>
       <ul>
         <li>Species: {species}</li>
