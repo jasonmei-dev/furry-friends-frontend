@@ -4,9 +4,8 @@ import { connect } from 'react-redux'
 import Logout from './Logout'
 
 
-const Navbar = (props) => {
-  console.log(props)
-  if (!props.loggedIn) {
+const Navbar = ({ loggedIn, currentUser }) => {
+  if (!loggedIn) {
     return (
       <div className="Navbar">
         <Link to="/">Home</Link>
@@ -26,7 +25,7 @@ const Navbar = (props) => {
           return <option key={type} value={type}>{type}</option>
         })}
       </select>
-      <Link to="/profile">{props.currentUser.attributes.first_name}</Link>
+      <Link to="/profile">{currentUser.attributes.first_name}</Link>
       <Logout />
     </div>
   )
