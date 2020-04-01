@@ -17,7 +17,6 @@ const Home = ({ loggedIn }) => {
 }
 
 const mapStateToProps = ({ currentUser }) => {
-  console.log(currentUser)
   return ({
     loggedIn: currentUser.id !== 0
   })
