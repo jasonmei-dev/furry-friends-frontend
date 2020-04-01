@@ -7,8 +7,8 @@ import SignUp from './components/SignUp';
 import Home from './components/Home';
 import { Route } from 'react-router-dom';
 import PetsContainer from './containers/PetsContainer'
-import Profile from './components/Profile';
-import PetPage from './components/PetPage';
+import Profile from './containers/Profile';
+import PetPage from './containers/PetPage';
 
 class App extends React.Component {
 
