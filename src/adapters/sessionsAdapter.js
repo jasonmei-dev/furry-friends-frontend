@@ -1,6 +1,8 @@
 import { setCurrentUser, clearCurrentUser } from '../actions/currentUser';
 import { resetLoginForm } from '../actions/loginForm';
 import { resetSignUpForm } from '../actions/signupForm';
+import { clearMyPets } from '../actions/myPets';
+import { fetchMyPets } from '../adapters/PetsAdapter';
 
 export const login = credentials => {
   return dispatch => {
@@ -18,6 +20,7 @@ export const login = credentials => {
         alert(resp.error)
       } else {
         dispatch(setCurrentUser(resp.data))
+        dispatch(fetchMyPets())
         dispatch(resetLoginForm())
       }
     })
@@ -43,6 +46,7 @@ export const getCurrentUser = () => {
 export const logout = event => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    dispatch(clearMyPets())
     fetch("http://localhost:3001/api/v1/logout", {
       credentials: "include",
       method: "DELETE"
