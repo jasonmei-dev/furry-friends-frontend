@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './adapters/SessionsAdapter';
+import { fetchMyPets } from './adapters/PetsAdapter';
 import Navbar from './components/Navbar';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
@@ -14,6 +15,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.getCurrentUser();
+    this.props.fetchMyPets();
   }
 
   render() {
@@ -33,4 +35,10 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, { getCurrentUser })(App);
+// const mapStateToProps = ({ myPets }) => {
+//   return {
+//     myPets
+//   }
+// }
+
+export default connect(null, { getCurrentUser, fetchMyPets })(App);
