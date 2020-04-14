@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PetCard = ({ petObject }) => {
-  let imgUrl
-  const petPhotos = petObject.photos
+  let imgUrl, petId
 
-  petPhotos.length === 0 ? imgUrl = "" : imgUrl = petPhotos[0].medium
-  // console.log(petObject)
+  petObject.photos.length === 0 ? imgUrl = "" : imgUrl = petObject.photos[0].medium
+  petObject.pet_api_id ? petId = petObject.pet_api_id : petId = petObject.id
+
   return (
     <div className='PetCard' id={petObject.id}>
       <div className='pet-image-container'>
@@ -15,14 +15,14 @@ const PetCard = ({ petObject }) => {
       <div className='pet-card-details'>
         <div className='pet-info'>
           <h3>{petObject.name}</h3>
-          { petObject.breeds.secondary !== null ? <p>{petObject.breeds.primary} / {petObject.breeds.secondary}</p> : <p>{petObject.breeds.primary}</p> }
+          { petObject.breeds.secondary ? <p>{petObject.breeds.primary} / {petObject.breeds.secondary}</p> : <p>{petObject.breeds.primary}</p> }
         </div>
 
         <button className='pet-save-button'>Add</button>
 
         <button className='pet-details-button'>
           <span className='pet-card-link'>
-            <Link to={`/pets/${petObject.id}`}>Details</Link>
+            <Link to={`/pets/${petId}`}>Details</Link>
           </span>
         </button>
       </div>
