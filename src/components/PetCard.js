@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { addPet } from '../adapters/PetsAdapter';
 
-const PetCard = ({ petObject }) => {
+const PetCard = ({ petObject, addPet }) => {
   let imgUrl, petId
 
   petObject.photos.length === 0 ? imgUrl = "" : imgUrl = petObject.photos[0].medium
   petObject.pet_api_id ? petId = petObject.pet_api_id : petId = petObject.id
+
+  const handleClick = () => {
+    addPet(petObject);
+  }
 
   return (
     <div className='PetCard' id={petObject.id}>
@@ -18,7 +24,7 @@ const PetCard = ({ petObject }) => {
           { petObject.breeds.secondary ? <p>{petObject.breeds.primary} / {petObject.breeds.secondary}</p> : <p>{petObject.breeds.primary}</p> }
         </div>
 
-        <button className='pet-save-button'>Add</button>
+        <button onClick={handleClick} className='pet-save-button'>Add</button>
 
         <button className='pet-details-button'>
           <span className='pet-card-link'>
@@ -30,4 +36,4 @@ const PetCard = ({ petObject }) => {
   )
 }
 
-export default PetCard
+export default connect(null, { addPet })(PetCard);

@@ -10,3 +10,10 @@ export const clearMyPets = () => {
     type: "CLEAR_MY_PETS"
   }
 }
+
+export const addMyPet = pet => {
+  return {
+    type: "ADD_MY_PET",
+    pet
+  }
+}

@@ -1,6 +1,6 @@
 import { loadingPets, getPets } from '../actions/petfinder';
 import { loadingPet, setCurrentPet } from '../actions/currentPet';
-import { setMyPets } from '../actions/myPets';
+import { setMyPets, addMyPet } from '../actions/myPets';
 
 export const fetchPets = () => {
   return dispatch => {
@@ -44,6 +44,31 @@ export const fetchMyPets = () => {
     })
     .then(response => response.json())
     .then(myPets => dispatch(setMyPets(myPets)))
+    .catch(console.log)
+  }
+}
+
+export const addPet = petData => {
+  return dispatch => {
+    const petInfo = {
+      pet: petData
+    }
+    fetch("http://localhost:3001/api/v1/likes", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(petInfo)
+    })
+    .then(response => response.json())
+    .then(pet => {
+      if (pet.error) {
+        alert(pet.error)
+      } else {
+        dispatch(addMyPet(pet))
+      }
+    })
     .catch(console.log)
   }
 }

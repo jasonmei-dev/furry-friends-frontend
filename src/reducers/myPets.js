@@ -4,6 +4,8 @@ export default (state = [], action) => {
       return action.pets;
     case "CLEAR_MY_PETS":
       return state
+    case "ADD_MY_PET":
+      return [...state, action.pet]
     default:
       return state
   }
