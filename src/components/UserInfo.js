@@ -5,7 +5,7 @@ const UserInfo = ({ currentUser }) => {
   const { first_name, last_name, email, city, state, country, postcode } = attributes
 
   return (
-    <div className='PetDetails'>
+    <div className='UserInfo'>
       <h1>{first_name} {last_name}</h1>
       <ul>
         <li>Email: {email}</li>
