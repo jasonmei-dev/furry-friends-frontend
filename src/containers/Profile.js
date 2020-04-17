@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserInfo from '../components/UserInfo';
-import MyPets from '../components/MyPets';
+import MyLikes from '../components/MyLikes';
 
 class Profile extends Component {
 
   render() {
-    const { currentUser, myPets } = this.props
+    const { currentUser, myLikes } = this.props
 
     return (
       <div className='Profile'>
         Profile
         <UserInfo currentUser={currentUser}/>
-        <MyPets myPets={myPets}/>
+        <MyLikes myLikes={myLikes}/>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ currentUser, myPets }) => {
+const mapStateToProps = ({ currentUser, myLikes }) => {
   return {
     currentUser,
-    myPets
+    myLikes
   }
 }
 

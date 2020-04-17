@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PetDetails = ({ currentPet }) => {
-  const { name, species, breeds, age, gender, size, status, contact } = currentPet
+  const { name, species, breeds, age, gender, size, contact } = currentPet
   // console.log(currentPet)
 
   return (
@@ -13,7 +13,6 @@ const PetDetails = ({ currentPet }) => {
         <li>Age: {age}</li>
         <li>Gender: {gender}</li>
         <li>Size: {size}</li>
-        <li>Status: {status}</li>
       </ul>
 
       <div className='pet-contact'>

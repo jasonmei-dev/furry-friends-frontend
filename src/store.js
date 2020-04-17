@@ -5,7 +5,7 @@ import loginForm from './reducers/loginForm';
 import signupForm from './reducers/signupForm';
 import petfinder from './reducers/petfinder';
 import currentPet from './reducers/currentPet';
-import myPets from './reducers/myPets';
+import myLikes from './reducers/myLikes';
 
 
 const rootReducer = combineReducers({
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   loginForm,
   signupForm,
   petfinder,
-  myPets
+  myLikes
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

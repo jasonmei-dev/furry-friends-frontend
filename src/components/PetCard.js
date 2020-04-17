@@ -1,16 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addPet } from '../adapters/PetsAdapter';
+import { addNewLike, deleteLike } from '../adapters/LikesAdapter';
 
-const PetCard = ({ petObject, addPet }) => {
+const PetCard = ({ petObject, addNewLike, myLikes }) => {
   let imgUrl, petId
 
   petObject.photos.length === 0 ? imgUrl = "" : imgUrl = petObject.photos[0].medium
   petObject.pet_api_id ? petId = petObject.pet_api_id : petId = petObject.id
 
-  const handleClick = () => {
-    addPet(petObject);
+  const like = () => {
+    addNewLike(petObject);
+    console.log('clicked')
+  }
+
+  const unlike = () => {
+    deleteLike(petObject);
   }
 
   return (
@@ -24,8 +29,8 @@ const PetCard = ({ petObject, addPet }) => {
           { petObject.breeds.secondary ? <p>{petObject.breeds.primary} / {petObject.breeds.secondary}</p> : <p>{petObject.breeds.primary}</p> }
         </div>
 
-        <button onClick={handleClick} className='pet-save-button'>Add</button>
-
+        <button onClick={like} className='pet-save-button'>Like</button>
+        <button onClick={unlike} className='pet-remove-button'>Unlike</button>
         <button className='pet-details-button'>
           <span className='pet-card-link'>
             <Link to={`/pets/${petId}`}>Details</Link>
@@ -36,4 +41,10 @@ const PetCard = ({ petObject, addPet }) => {
   )
 }
 
-export default connect(null, { addPet })(PetCard);
+const mapStateToProps = ({ myLikes }) => {
+  return {
+    myLikes
+  }
+}
+
+export default connect(mapStateToProps, { addNewLike })(PetCard);
