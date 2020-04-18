@@ -1,4 +1,4 @@
-import { setLikes, addLike } from '../actions/myLikes';
+import { setLikes, addLike, deleteLike } from '../actions/myLikes';
 
 export const fetchLikes = () => {
   return dispatch => {
@@ -39,12 +39,9 @@ export const addNewLike = petData => {
   }
 }
 
-export const deleteLike = like => {
+export const deleteMyLike = likeId => {
   return dispatch => {
-    const likeInfo = {
-      like: like.data
-    }
-    fetch(`http://localhost:3001/api/v1/likes${like.data.id}`, {
+    fetch(`http://localhost:3001/api/v1/likes/${likeId}`, {
       credentials: "include",
       method: "DELETE",
       headers: {
@@ -52,7 +49,7 @@ export const deleteLike = like => {
       }
     })
     .then(response => response.json())
-    .then(console.log)
+    .then(resp => dispatch(deleteLike(resp)))
     .catch(console.log)
   }
 }

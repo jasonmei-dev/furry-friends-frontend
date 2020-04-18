@@ -1,21 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addNewLike, deleteLike } from '../adapters/LikesAdapter';
+import { addNewLike, deleteMyLike } from '../adapters/LikesAdapter';
 
-const PetCard = ({ petObject, addNewLike, myLikes }) => {
+const PetCard = ({ likeId, petObject, addNewLike, myLikes, deleteMyLike }) => {
   let imgUrl, petId
-
   petObject.photos.length === 0 ? imgUrl = "" : imgUrl = petObject.photos[0].medium
   petObject.pet_api_id ? petId = petObject.pet_api_id : petId = petObject.id
 
   const like = () => {
     addNewLike(petObject);
-    console.log('clicked')
   }
 
   const unlike = () => {
-    deleteLike(petObject);
+    deleteMyLike(likeId);
   }
 
   return (
@@ -47,4 +45,4 @@ const mapStateToProps = ({ myLikes }) => {
   }
 }
 
-export default connect(mapStateToProps, { addNewLike })(PetCard);
+export default connect(mapStateToProps, { addNewLike, deleteMyLike })(PetCard);
