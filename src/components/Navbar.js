@@ -13,18 +13,10 @@ const Navbar = ({ loggedIn, currentUser }) => {
     )
   }
 
-  let types = ['Dog', 'Cat', 'Rabbit', 'Small & Furry', 'Horse', 'Bird', 'Scales, Fins & Other', 'Barnyard']
-
   return (
     <div className="Navbar">
       <Link to="/">Home</Link>
-      <Link to="/pets">Browse</Link>
-      <select>
-        <option value="">Search</option>
-        {types.map(type => {
-          return <option key={type} value={type}>{type}</option>
-        })}
-      </select>
+      <Link to="/pets">Pets</Link>
       <Link to="/profile">{currentUser.attributes.first_name}</Link>
       <Logout />
     </div>
