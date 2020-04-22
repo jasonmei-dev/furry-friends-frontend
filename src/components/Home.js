@@ -1,7 +1,8 @@
 import React from 'react';
 import Welcome from './Welcome';
-import PetsContainer from '../containers/PetsContainer';
+// import PetsContainer from '../containers/PetsContainer';
 import { connect } from 'react-redux';
+// import FilterBar from './FilterBar';
 
 const Home = ({ loggedIn }) => {
 
@@ -11,7 +12,7 @@ const Home = ({ loggedIn }) => {
 
   return (
     <div className="Home">
-      <PetsContainer />
+      Home
     </div>
   )
 }
