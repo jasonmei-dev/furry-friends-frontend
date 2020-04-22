@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPets } from '../adapters/PetsAdapter'
 import PetCard from '../components/PetCard'
+import FilterBar from '../components/FilterBar'
 
 class PetsContainer extends Component {
 
@@ -26,6 +27,7 @@ class PetsContainer extends Component {
     return (
       <div className='PetsContainer'>
         <h3>Furry Friends for Adoption Near You</h3>
+        <FilterBar />
         {this.handleLoading()}
       </div>
     )
