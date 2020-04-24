@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNewLike, deleteMyLike } from '../adapters/LikesAdapter';
+import LikeButton from './LikeButton';
 
 const PetCard = ({ likeId, petObject, addNewLike, myLikes, deleteMyLike }) => {
   let imgUrl, petId
-  petObject.photos.length === 0 ? imgUrl = "" : imgUrl = petObject.photos[0].medium
+  console.log(likeId)
+  petObject.primary_photo_cropped ? imgUrl = petObject.primary_photo_cropped.small : imgUrl = ''
   petObject.pet_api_id ? petId = petObject.pet_api_id : petId = petObject.id
 
   const like = () => {
@@ -29,6 +31,7 @@ const PetCard = ({ likeId, petObject, addNewLike, myLikes, deleteMyLike }) => {
 
         <button onClick={like} className='pet-save-button'>Like</button>
         <button onClick={unlike} className='pet-remove-button'>Unlike</button>
+        <LikeButton pet={petObject} />
         <button className='pet-details-button'>
           <span className='pet-card-link'>
             <Link to={`/pets/${petId}`}>Details</Link>
