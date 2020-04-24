@@ -1,25 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Nav, Navbar } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import Logout from './Logout'
 
 
-const Navbar = ({ loggedIn, currentUser }) => {
+const NavBar = ({ loggedIn, currentUser }) => {
   if (!loggedIn) {
     return (
-      <div className="Navbar">
-        <Link to="/">Home</Link>
-      </div>
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar.Brand href="/">Furry Friends</Navbar.Brand>
+      </Navbar>
     )
   }
 
   return (
-    <div className="Navbar">
-      <Link to="/">Home</Link>
-      <Link to="/pets">Pets</Link>
-      <Link to="/profile">{currentUser.attributes.first_name}</Link>
-      <Logout />
-    </div>
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar.Brand href="/">Furry Friends</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="ml-auto">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/pets">Pets</Nav.Link>
+          <Nav.Link href="/profile">{currentUser.attributes.first_name}</Nav.Link>
+          <Logout />
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
 
@@ -30,4 +36,4 @@ const mapStateToProps = ({ currentUser }) => {
   })
 }
 
-export default connect(mapStateToProps)(Navbar)
+export default connect(mapStateToProps)(NavBar)

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './adapters/SessionsAdapter';
 import { fetchLikes } from './adapters/LikesAdapter';
-import Navbar from './components/Navbar';
+import NavBar from './components/NavBar';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
 import PetsContainer from './containers/PetsContainer'
@@ -22,7 +22,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Navbar />
+          <NavBar />
           <Route exact path="/" component={Home} />
           <Route exact path="/pets" component={PetsContainer}/>
           <Route exact path="/pets/:id" render={petProps => {
