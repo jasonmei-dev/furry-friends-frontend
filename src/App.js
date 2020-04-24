@@ -1,15 +1,15 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './adapters/SessionsAdapter';
 import { fetchLikes } from './adapters/LikesAdapter';
 import Navbar from './components/Navbar';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
-import { Route } from 'react-router-dom';
 import PetsContainer from './containers/PetsContainer'
 import Profile from './containers/Profile';
 import PetPage from './containers/PetPage';
+import './App.css';
 
 class App extends React.Component {
 
@@ -20,17 +20,19 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <Navbar />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/pets" component={PetsContainer}/>
-        <Route exact path="/pets/:id" render={petProps => {
-          let id = petProps.match.params.id
-          return <PetPage petId={id} />
-        }}/>
-        <Route exact path="/profile" component={Profile}/>
-        <Route exact path="/signup" component={SignUp} />
-      </div>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/pets" component={PetsContainer}/>
+          <Route exact path="/pets/:id" render={petProps => {
+            let id = petProps.match.params.id
+            return <PetPage petId={id} />
+          }}/>
+          <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/signup" component={SignUp} />
+        </div>
+      </Router>
     );
   }
 }
