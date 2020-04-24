@@ -15,7 +15,7 @@ class PetsContainer extends Component {
     if (loading) {
       return <p>Loading Pets...</p>
     } else {
-      return <div>
+      return <div className='PetCards'>
         {pets.map(pet => {
           return <PetCard key={pet.id} petObject={pet}/>
         })}
