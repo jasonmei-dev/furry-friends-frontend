@@ -10,8 +10,8 @@ class Profile extends Component {
 
     return (
       <div className='Profile'>
-        Profile
         <UserInfo currentUser={currentUser}/>
+        <h2>Saved Pets</h2>
         <MyLikes myLikes={myLikes}/>
       </div>
     )
