@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPets } from '../adapters/PetsAdapter'
 import PetCard from '../components/PetCard'
-import FilterBar from '../components/FilterBar'
+import Container from 'react-bootstrap/Container'
 
 class PetsContainer extends Component {
 
@@ -25,11 +25,10 @@ class PetsContainer extends Component {
 
   render() {
     return (
-      <div className='PetsContainer'>
+      <Container fluid>
         <h3>Furry Friends for Adoption Near You</h3>
-        <FilterBar />
         {this.handleLoading()}
-      </div>
+      </Container>
     )
   }
 }
