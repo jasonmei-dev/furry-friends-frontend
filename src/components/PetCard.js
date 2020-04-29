@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNewLike, deleteMyLike } from '../adapters/LikesAdapter';
 import LikeButton from './LikeButton';
+import Card from 'react-bootstrap/Card';
 
 const PetCard = ({ likeId, petObject, addNewLike, myLikes, deleteMyLike }) => {
   let imgUrl, petId
@@ -19,26 +20,25 @@ const PetCard = ({ likeId, petObject, addNewLike, myLikes, deleteMyLike }) => {
   }
 
   return (
-    <div className='PetCard' id={petObject.id}>
+    <Card className='PetCard' id={petObject.id}>
       <div className='pet-image-container'>
-        <img className='pet-image' alt={petObject.name} src={imgUrl}></img>
+        <Card.Img className='pet-image' variant= "top" alt={petObject.name} src={imgUrl} />
       </div>
-      <div className='pet-card-details'>
-        <div className='pet-info'>
-          <h3>{petObject.name}</h3>
-          { petObject.breeds.secondary ? <p>{petObject.breeds.primary} / {petObject.breeds.secondary}</p> : <p>{petObject.breeds.primary}</p> }
-        </div>
+
+      <Card.Body className='pet-card-details'>
+        <Card.Title>{petObject.name}</Card.Title>
+        { petObject.breeds.secondary ?
+          <Card.Subtitle>{petObject.breeds.primary} / {petObject.breeds.secondary}</Card.Subtitle> :
+          <Card.Subtitle>{petObject.breeds.primary}</Card.Subtitle> }
 
         <button onClick={like} className='pet-save-button'>Like</button>
         <button onClick={unlike} className='pet-remove-button'>Unlike</button>
         <LikeButton pet={petObject} />
         <button className='pet-details-button'>
-          <span className='pet-card-link'>
-            <Link to={`/pets/${petId}`}>Details</Link>
-          </span>
+          <Link to={`/pets/${petId}`}>Details</Link>
         </button>
-      </div>
-    </div>
+      </Card.Body>
+    </Card>
   )
 }
 
