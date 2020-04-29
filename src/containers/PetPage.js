@@ -7,8 +7,8 @@ import { getCurrentPet } from '../adapters/PetsAdapter';
 class PetPage extends Component {
 
   componentDidMount() {
-    let petId = this.props.petId
-    this.props.getCurrentPet(petId);
+    const { match } = this.props
+    this.props.getCurrentPet(match.params.id);
   }
 
   handleLoading = () => {
