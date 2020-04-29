@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './adapters/SessionsAdapter';
 import { fetchLikes } from './adapters/LikesAdapter';
@@ -9,6 +9,7 @@ import Home from './components/Home';
 import PetsContainer from './containers/PetsContainer'
 import Profile from './containers/Profile';
 import PetPage from './containers/PetPage';
+import PetType from './containers/PetType';
 import './App.css';
 
 class App extends React.Component {
@@ -23,14 +24,14 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <NavBar />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/pets" component={PetsContainer}/>
-          <Route exact path="/pets/:id" render={petProps => {
-            let id = petProps.match.params.id
-            return <PetPage petId={id} />
-          }}/>
-          <Route exact path="/profile" component={Profile}/>
-          <Route exact path="/signup" component={SignUp} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/pets" component={PetsContainer}/>
+            <Route exact path="/profile" component={Profile}/>
+            <Route path="/pets/:id" component={PetPage} />
+            <Route path="/:type" component={PetType} />
+            <Route path="/signup" component={SignUp} />
+          </Switch>
         </div>
       </Router>
     );
