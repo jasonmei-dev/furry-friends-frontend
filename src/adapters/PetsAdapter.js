@@ -1,15 +1,19 @@
 import { loadingPets, getPets } from '../actions/petfinder';
 import { loadingPet, setCurrentPet } from '../actions/currentPet';
 
-export const fetchPets = () => {
+export const fetchPets = page => {
+  const pageNum = {
+    page
+  }
   return dispatch => {
     dispatch(loadingPets());
     fetch("http://localhost:3001/api/v1/pets", {
       credentials: "include",
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify(pageNum)
     })
     .then(response => response.json())
     .then(pets => dispatch(getPets(pets.animals)))
