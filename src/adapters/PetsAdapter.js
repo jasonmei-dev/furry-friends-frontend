@@ -37,9 +37,10 @@ export const getCurrentPet = petId => {
   }
 }
 
-export const fetchType = type => {
+export const fetchType = (type, page) => {
   const petType = {
-    type
+    type,
+    page
   }
   return dispatch => {
     dispatch(loadingPets());
