@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchPets } from '../adapters/PetsAdapter'
+import { fetchPets, fetchType } from '../adapters/PetsAdapter'
 import PetCard from '../components/PetCard'
-import Container from 'react-bootstrap/Container'
 import PageNav from '../components/PageNav'
+import Container from 'react-bootstrap/Container'
 
 class PetsContainer extends Component {
   constructor() {
@@ -14,22 +14,68 @@ class PetsContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchPets(this.state.page)
+    const { match, fetchPets, fetchType } = this.props
+
+    if (match.params.type) {
+      const type = match.params.type
+      if (type.charAt(type.length - 1) !== "s") {
+        fetchType(type, this.state.page)
+      } else {
+        fetchType(type.slice(0, type.length -1),this.state.page)
+      }
+    } else {
+      fetchPets(this.state.page)
+    }
   }
 
   nextPage = () =>{
+    const { match, fetchPets, fetchType } = this.props
     let nextPage = this.state.page
-    nextPage++ //adding one to the page
-    this.setState({
-      page: nextPage
-    },this.props.fetchPets(nextPage))
+    nextPage++
+
+    if (match.params.type) {
+      const type = match.params.type
+      if (type.charAt(type.length - 1) !== "s") {
+        this.setState({
+          page: nextPage
+        },fetchType(type, nextPage))
+      } else {
+        this.setState({
+          page: nextPage
+        },fetchType(type.slice(0, type.length -1), nextPage))
+      }
+    } else {
+      this.setState({
+        page: nextPage
+      },fetchPets(nextPage))
+    }
   }
 
   previousPage = () => {
+    const { match, fetchPets, fetchType } = this.props
     let page = this.state.page
     let previousPage = page--
-    previousPage <= 1 ? alert('Unable to go back') : this.setState({page: previousPage - 1},
-      this.props.fetchPets(previousPage - 1))
+
+    if (previousPage <= 1) {
+      alert('Unable to go back')
+    } else {
+      if (match.params.type) {
+        const type = match.params.type
+        if (type.charAt(type.length - 1) !== "s") {
+          this.setState({
+            page: previousPage - 1
+          },fetchType(type, previousPage - 1))
+        } else {
+          this.setState({
+            page: previousPage - 1
+          },fetchType(type.slice(0, type.length -1), previousPage - 1))
+        }
+      } else {
+        this.setState({
+          page: previousPage - 1
+        },fetchPets(previousPage - 1))
+      }
+    }
   }
 
   handleLoading = () => {
@@ -52,17 +98,17 @@ class PetsContainer extends Component {
           <h3>Furry Friends for Adoption Near You</h3>
           {this.handleLoading()}
         </Container>
-         <PageNav previousPage={this.previousPage} nextPage={this.nextPage} page={this.state.page} />
+        <PageNav previousPage={this.previousPage} nextPage={this.nextPage} page={this.state.page} />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return ({
-    pets: state.petfinder.pets,
-    loading: state.petfinder.loading
-  })
+const mapStateToProps = ({ petfinder }) => {
+  return {
+    pets: petfinder.pets,
+    loading: petfinder.loading
+  }
 }
 
-export default connect (mapStateToProps, { fetchPets })(PetsContainer)
+export default connect (mapStateToProps, { fetchPets, fetchType })(PetsContainer)
