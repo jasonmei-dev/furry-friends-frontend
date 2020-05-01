@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { updateSignUpForm } from '../actions/signupForm';
 import { signup } from '../adapters/SessionsAdapter';
 
@@ -33,6 +34,10 @@ const SignUp = ({ signupForm, updateSignUpForm, signup }) => {
         <input type='text' name='postcode' placeholder='Post Code' value={signupForm.postcode} onChange={handleInputChange}/><br/>
         <input type='submit' value='Sign Up' />
       </form>
+      
+      <button>
+        <Link to={"/"}>Cancel</Link>
+      </button>
     </div>
   )
 };
