@@ -1,36 +1,36 @@
 import React from 'react';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import { connect } from 'react-redux'
-import Logout from './Logout'
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { logout } from '../adapters/SessionsAdapter';
 
 
-const NavBar = ({ loggedIn, currentUser }) => {
+const NavBar = ({ loggedIn, currentUser, logout }) => {
   let types = ['Dogs', 'Cats', 'Rabbits', 'Small & Furry', 'Horses', 'Birds', 'Scales, Fins & Other', 'Barnyard']
 
   if (!loggedIn) {
-    return (
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="/">Furry Friends</Navbar.Brand>
-      </Navbar>
-    )
+    return ""
   }
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="md" sticky="top">
       <Navbar.Brand href="/">Furry Friends</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/pets">Pets</Nav.Link>
-          <NavDropdown title="Pet Types" id="basic-nav-dropdown">
+          <Nav.Link href="#">About</Nav.Link>
+          <NavDropdown title="Pets" id="basic-nav-dropdown">
             {types.map(type => {
-              let typeFixed = type.replace(/\s/gi, '').replace(/\W/gi, '-')
+              let typeFixed = type.replace(/\s/gi, "").replace(/\W/gi, "-")
               return <NavDropdown.Item href={`/${typeFixed.toLowerCase()}`} key={type}>{type}</NavDropdown.Item>
             })}
           </NavDropdown>
-          <Nav.Link href="/profile">{currentUser.attributes.first_name}</Nav.Link>
-          <Logout />
+
+          <NavDropdown title={currentUser.attributes.first_name} id="basic-nav-dropdown">
+            <NavDropdown.Item href={"/profile"}>Account Info</NavDropdown.Item>
+            <NavDropdown.Item href={"#"}>Favorites</NavDropdown.Item>
+          </NavDropdown>
+
+          <Nav.Link href="/" onClick={logout}>Log Out</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
@@ -44,4 +44,4 @@ const mapStateToProps = ({ currentUser }) => {
   })
 }
 
-export default connect(mapStateToProps)(NavBar)
+export default connect(mapStateToProps, { logout })(NavBar)
