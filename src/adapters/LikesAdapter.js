@@ -14,10 +14,10 @@ export const fetchLikes = () => {
   }
 }
 
-export const addNewLike = petData => {
+export const addNewLike = pet => {
   return dispatch => {
-    const petInfo = {
-      pet: petData
+    const petData = {
+      pet
     }
     fetch("http://localhost:3001/api/v1/likes", {
       credentials: "include",
@@ -25,7 +25,7 @@ export const addNewLike = petData => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(petInfo)
+      body: JSON.stringify(petData)
     })
     .then(response => response.json())
     .then(resp => {
