@@ -27,7 +27,7 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
 
           <NavDropdown title={currentUser.attributes.first_name} id="basic-nav-dropdown">
             <NavDropdown.Item href={"/profile"}>Account Info</NavDropdown.Item>
-            <NavDropdown.Item href={"#"}>Favorites</NavDropdown.Item>
+            <NavDropdown.Item href={"/favorites"}>Favorites</NavDropdown.Item>
           </NavDropdown>
 
           <Nav.Link href="/" onClick={logout}>Log Out</Nav.Link>
