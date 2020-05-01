@@ -2,17 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNewLike, deleteMyLike } from '../adapters/LikesAdapter';
-import LikeButton from './LikeButton';
 import Card from 'react-bootstrap/Card';
 
-const PetCard = ({ likeId, petObject, addNewLike, myLikes, deleteMyLike }) => {
-  let imgUrl, petId
+const PetCard = ({ likeId, pet, addNewLike, myLikes, deleteMyLike }) => {
   console.log(likeId)
-  petObject.primary_photo_cropped ? imgUrl = petObject.primary_photo_cropped.small : imgUrl = ''
-  petObject.pet_api_id ? petId = petObject.pet_api_id : petId = petObject.id
+  const petId = pet.pet_api_id || pet.id
+  let imgUrl
+
+  pet.primary_photo_cropped ? imgUrl = pet.primary_photo_cropped.small : imgUrl = ''
 
   const like = () => {
-    addNewLike(petObject);
+    addNewLike(pet);
   }
 
   const unlike = () => {
@@ -20,20 +20,21 @@ const PetCard = ({ likeId, petObject, addNewLike, myLikes, deleteMyLike }) => {
   }
 
   return (
-    <Card className='PetCard' id={petObject.id}>
+    <Card className='PetCard' id={petId}>
       <div className='pet-image-container'>
-        <Card.Img className='pet-image' variant= "top" alt={petObject.name} src={imgUrl} />
+        <Card.Img className='pet-image' variant= "top" alt={pet.name} src={imgUrl} />
       </div>
 
       <Card.Body className='pet-card-details'>
-        <Card.Title>{petObject.name}</Card.Title>
-        { petObject.breeds.secondary ?
-          <Card.Subtitle>{petObject.breeds.primary} / {petObject.breeds.secondary}</Card.Subtitle> :
-          <Card.Subtitle>{petObject.breeds.primary}</Card.Subtitle> }
+        <Card.Title>{pet.name}</Card.Title>
+        { pet.breeds.secondary
+          ? <Card.Subtitle>{pet.breeds.primary} / {pet.breeds.secondary}</Card.Subtitle>
+          : <Card.Subtitle>{pet.breeds.primary}</Card.Subtitle> }
 
-        <button onClick={like} className='pet-save-button'>Like</button>
-        <button onClick={unlike} className='pet-remove-button'>Unlike</button>
-        <LikeButton pet={petObject} />
+        {likeId
+          ? <button onClick={unlike} className='pet-remove-button'>Delete</button>
+          : <button onClick={like} className='pet-save-button'>Add</button>}
+
         <button className='pet-details-button'>
           <Link to={`/pets/${petId}`}>Details</Link>
         </button>
@@ -42,10 +43,4 @@ const PetCard = ({ likeId, petObject, addNewLike, myLikes, deleteMyLike }) => {
   )
 }
 
-const mapStateToProps = ({ myLikes }) => {
-  return {
-    myLikes
-  }
-}
-
-export default connect(mapStateToProps, { addNewLike, deleteMyLike })(PetCard);
+export default connect(null, { addNewLike, deleteMyLike })(PetCard);
