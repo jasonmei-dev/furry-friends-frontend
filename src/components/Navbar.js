@@ -26,7 +26,7 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
           </NavDropdown>
 
           <NavDropdown title={currentUser.attributes.first_name} id="basic-nav-dropdown">
-            <NavDropdown.Item href={"/profile"}>Account Info</NavDropdown.Item>
+            <NavDropdown.Item href={"/account"}>Account Info</NavDropdown.Item>
             <NavDropdown.Item href={"/favorites"}>Favorites</NavDropdown.Item>
           </NavDropdown>
 
@@ -39,7 +39,7 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
 
 const mapStateToProps = ({ currentUser }) => {
   return ({
-    loggedIn: currentUser.id !== 0,
+    loggedIn: currentUser.id,
     currentUser
   })
 }
