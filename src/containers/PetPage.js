@@ -3,6 +3,8 @@ import PetDetails from '../components/PetDetails';
 import PetCarousel from '../components/PetCarousel';
 import { connect } from 'react-redux';
 import { getCurrentPet } from '../adapters/PetsAdapter';
+import { addNewLike } from '../adapters/LikesAdapter';
+
 
 class PetPage extends Component {
 
@@ -12,7 +14,7 @@ class PetPage extends Component {
   }
 
   handleLoading = () => {
-    const { pet, loading } = this.props;
+    const { pet, loading, addNewLike } = this.props;
 
     if (loading || pet === null) {
       return <p>Loading...</p>
@@ -21,6 +23,7 @@ class PetPage extends Component {
         <div>
           <PetCarousel currentPet={pet} />
           <PetDetails currentPet={pet} />
+          <button onClick={() => addNewLike(pet)}>Add</button>
         </div>
       )
     }
@@ -42,4 +45,4 @@ const mapStateToProps = ({ currentPet }) => {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentPet })(PetPage);
+export default connect(mapStateToProps, { getCurrentPet, addNewLike })(PetPage);
