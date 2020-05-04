@@ -6,11 +6,12 @@ import UserInfo from '../components/UserInfo';
 class Profile extends Component {
 
   render() {
+    console.log(this.props)
     const { currentUser } = this.props
 
     return (
       <div className='Profile'>
-        <UserInfo currentUser={currentUser}/>
+      {currentUser.id && <UserInfo currentUser={currentUser}/>}
       </div>
     )
   }
