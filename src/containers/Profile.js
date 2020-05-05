@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UserInfo from '../components/UserInfo';
-// import MyLikes from '../components/MyLikes';
+import MyLikes from '../components/MyLikes';
 
 class Profile extends Component {
 
@@ -12,6 +12,7 @@ class Profile extends Component {
     return (
       <div className='Profile'>
       {currentUser.id && <UserInfo currentUser={currentUser}/>}
+      {currentUser.id && <MyLikes />}
       </div>
     )
   }

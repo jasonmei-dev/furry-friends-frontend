@@ -6,11 +6,12 @@ import { fetchLikes } from './adapters/LikesAdapter';
 import NavBar from './components/NavBar';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
-import MyLikes from './components/MyLikes';
+import About from './components/About';
+// import MyLikes from './components/MyLikes';
 import PetsContainer from './containers/PetsContainer';
 import Profile from './containers/Profile';
 import PetPage from './containers/PetPage';
-import UserEdit from './components/UserEdit';
+// import UserEdit from './components/UserEdit';
 import './App.css';
 
 class App extends React.Component {
@@ -28,10 +29,9 @@ class App extends React.Component {
           <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
             <Route exact path="/pets" component={PetsContainer} />
-            <Route exact path="/account" component={Profile} />
-            <Route exact path="/account/edit" component={UserEdit} />
-            <Route exact path="/favorites" component={MyLikes} />
+            <Route exact path="/profile" component={Profile} />
             <Route exact path="/signup" component={SignUp} />
             <Route path="/pets/:id" component={PetPage} />
             <Route path="/:type" component={PetsContainer} />
