@@ -5,7 +5,6 @@ import { addNewLike, deleteMyLike } from '../adapters/LikesAdapter';
 import Card from 'react-bootstrap/Card';
 
 const PetCard = ({ likeId, pet, addNewLike, myLikes, deleteMyLike }) => {
-  console.log(likeId)
   const petId = pet.pet_api_id || pet.id
   let imgUrl
 
@@ -35,9 +34,9 @@ const PetCard = ({ likeId, pet, addNewLike, myLikes, deleteMyLike }) => {
           ? <button onClick={unlike} className='pet-remove-button'>Delete</button>
           : <button onClick={like} className='pet-save-button'>Add</button>}
 
-        <button className='pet-details-button'>
-          <Link to={`/pets/${petId}`}>Details</Link>
-        </button>
+          <Link to={`/pets/${petId}`}>
+            <button className='pet-details-button'>Details</button>
+          </Link>
       </Card.Body>
     </Card>
   )
