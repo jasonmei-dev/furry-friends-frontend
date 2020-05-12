@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { connect } from 'react-redux';
 import { logout } from '../adapters/SessionsAdapter';
 
@@ -13,19 +14,29 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="md" sticky="top">
-      <Navbar.Brand href="/">Furry Friends</Navbar.Brand>
+      <LinkContainer to="/">
+        <Navbar.Brand>Furry Friends</Navbar.Brand>
+      </LinkContainer>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Link href="/about">About</Nav.Link>
-          <NavDropdown title="Pets" id="basic-nav-dropdown">
-            {types.map(type => {
+          <NavDropdown title="Find By Type" id="basic-nav-dropdown">
+            {types.map((type, index) => {
               let typeFixed = type.replace(/\s/gi, "").replace(/\W/gi, "-")
-              return <NavDropdown.Item href={`/${typeFixed.toLowerCase()}`} key={type}>{type}</NavDropdown.Item>
+              return (
+                <LinkContainer to={`/types/${typeFixed.toLowerCase()}`} key={index + 1 }>
+                  <NavDropdown.Item>{type}</NavDropdown.Item>
+                </LinkContainer>
+              )
             })}
           </NavDropdown>
-          <Nav.Link href="/profile">{currentUser.attributes.first_name}</Nav.Link>
-          <Nav.Link href="/" onClick={logout}>Log Out</Nav.Link>
+
+          <LinkContainer to="/profile">
+            <Nav.Link>{currentUser.attributes.first_name}</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/" onClick={logout}>
+            <Nav.Link>Log Out</Nav.Link>
+          </LinkContainer>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
