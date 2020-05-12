@@ -1,6 +1,21 @@
 import { loadingPets, getPets } from '../actions/petfinder';
 import { loadingPet, setCurrentPet } from '../actions/currentPet';
 
+export const fetchAllPets = () => {
+  return dispatch => {
+    dispatch(loadingPets());
+    fetch("http://localhost:3001/api/v1/pets", {
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => response.json())
+    .then(pets => dispatch(getPets(pets.animals)))
+    .catch(console.log)
+  }
+}
+
 export const fetchPets = page => {
   const pageNum = {
     page
