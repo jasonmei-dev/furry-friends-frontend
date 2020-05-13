@@ -21,16 +21,15 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <NavDropdown title="Find By Type" id="basic-nav-dropdown">
-            {types.map((type, index) => {
+            {types.map(type => {
               let typeFixed = type.replace(/\s/gi, "").replace(/\W/gi, "-")
               return (
-                <LinkContainer to={`/types/${typeFixed.toLowerCase()}`} key={index + 1 }>
+                <LinkContainer to={`/types/${typeFixed.toLowerCase()}`} key={typeFixed}>
                   <NavDropdown.Item>{type}</NavDropdown.Item>
                 </LinkContainer>
               )
             })}
           </NavDropdown>
-
           <LinkContainer to="/profile">
             <Nav.Link>{currentUser.attributes.first_name}</Nav.Link>
           </LinkContainer>

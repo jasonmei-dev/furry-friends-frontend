@@ -13,7 +13,7 @@ class HomeCards extends Component {
   handleLoading = () => {
     const { pets, loading } = this.props;
     if (loading) {
-      return <p>Loading Pets...</p>
+      return <p>Finding Pets...</p>
     } else {
       return <div className='PetCards'>
         {pets.slice(0,4).map(pet => {

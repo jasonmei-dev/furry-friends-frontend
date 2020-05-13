@@ -6,18 +6,13 @@ import PageNav from '../components/PageNav'
 import Container from 'react-bootstrap/Container'
 
 class PetsContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      page: 1
-    }
+  state = {
+    page: 1
   }
 
   componentDidMount() {
-    const { match, fetchPets, fetchType } = this.props
-
-    if (match.params.type) {
-      const type = match.params.type
+    const { type, fetchPets, fetchType } = this.props
+    if (type) {
       if (type.charAt(type.length - 1) !== "s") {
         fetchType(type, this.state.page)
       } else {
@@ -29,12 +24,11 @@ class PetsContainer extends Component {
   }
 
   nextPage = () =>{
-    const { match, fetchPets, fetchType } = this.props
+    const { type, fetchPets, fetchType } = this.props
     let nextPage = this.state.page
     nextPage++
 
-    if (match.params.type) {
-      const type = match.params.type
+    if (type) {
       if (type.charAt(type.length - 1) !== "s") {
         this.setState({
           page: nextPage
@@ -52,15 +46,14 @@ class PetsContainer extends Component {
   }
 
   previousPage = () => {
-    const { match, fetchPets, fetchType } = this.props
+    const { type, fetchPets, fetchType } = this.props
     let page = this.state.page
     let previousPage = page--
 
     if (previousPage <= 1) {
       alert('Unable to go back')
     } else {
-      if (match.params.type) {
-        const type = match.params.type
+      if (type) {
         if (type.charAt(type.length - 1) !== "s") {
           this.setState({
             page: previousPage - 1
@@ -81,7 +74,7 @@ class PetsContainer extends Component {
   handleLoading = () => {
     const { pets, loading } = this.props;
     if (loading) {
-      return <p>Loading Pets...</p>
+      return <p>Finding Pets...</p>
     } else {
       return <div className='PetCards'>
         {pets.map(pet => {

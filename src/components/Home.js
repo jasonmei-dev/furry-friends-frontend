@@ -1,16 +1,8 @@
 import React from 'react';
-import Welcome from './Welcome';
 import HomeCards from '../containers/HomeCards';
-// import PetsContainer from '../containers/PetsContainer';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import FilterBar from './FilterBar';
 
-const Home = ({ loggedIn }) => {
-
-  if (!loggedIn) {
-    return <Welcome />
-  }
+const Home = () => {
 
   return (
     <div className="Home">
@@ -20,10 +12,5 @@ const Home = ({ loggedIn }) => {
   )
 }
 
-const mapStateToProps = ({ currentUser }) => {
-  return ({
-    loggedIn: !!currentUser.id,
-  })
-}
 
-export default connect (mapStateToProps)(Home)
+export default Home;
