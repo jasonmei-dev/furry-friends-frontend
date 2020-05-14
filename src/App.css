@@ -55,12 +55,23 @@
 }
 
 .PetCard {
-    background: #424242;;
+    background: #424242;
     color: rgba(255, 255, 255, 0.7);
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    /* font-family: "Roboto", "Helvetica", "Arial", sans-serif; */
     box-shadow: 5px 5px 12px #686868;
+}
+
+.carousel {
+  background: black;
+}
+
+.pet-image {
+  height: 400px;
+  object-fit: contain;
+}
+
+.card-image {
+  height: 225px;
+  object-fit: cover;
+  object-position: center;
 }

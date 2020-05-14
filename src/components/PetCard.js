@@ -8,7 +8,7 @@ const PetCard = ({ likeId, pet, addNewLike, myLikes, deleteMyLike }) => {
   const petId = pet.pet_api_id || pet.id
   let imgUrl
 
-  pet.primary_photo_cropped ? imgUrl = pet.primary_photo_cropped.small : imgUrl = ''
+  pet.primary_photo_cropped ? imgUrl = pet.primary_photo_cropped.medium : imgUrl = ''
 
   const like = () => {
     addNewLike(pet);
@@ -21,7 +21,7 @@ const PetCard = ({ likeId, pet, addNewLike, myLikes, deleteMyLike }) => {
   return (
     <Card className='PetCard' id={petId}>
       <div className='pet-image-container'>
-        <Card.Img className='pet-image' variant= "top" alt={pet.name} src={imgUrl} />
+        <Card.Img className='card-image' variant= "top" alt={pet.name} src={imgUrl} />
       </div>
 
       <Card.Body className='pet-card-details'>
