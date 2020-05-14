@@ -33,9 +33,9 @@ class App extends React.Component {
                 return <Welcome />
               }
             }} />
-            <Route exact path="/pets" component={PetsContainer} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/pets" component={PetsContainer} />
             <Route path="/pets/:id" component={PetPage} />
             <Route exact path="/types/:type" render={props => {
               let type = props.match.params.type
