@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchAllPets } from '../adapters/PetsAdapter'
 import PetCard from '../components/PetCard'
-import Container from 'react-bootstrap/Container'
+import Spinner from 'react-bootstrap/Spinner'
 
 class HomeCards extends Component {
 
@@ -13,7 +13,7 @@ class HomeCards extends Component {
   handleLoading = () => {
     const { pets, loading } = this.props;
     if (loading) {
-      return <p>Finding Pets...</p>
+      return <Spinner animation="border" role="status"><span className="sr-only">Finding Pets...</span></Spinner>
     } else {
       return <div className='PetCards'>
         {pets.slice(0,4).map(pet => {

@@ -4,6 +4,7 @@ import PetCarousel from '../components/PetCarousel';
 import { connect } from 'react-redux';
 import { getCurrentPet } from '../adapters/PetsAdapter';
 import { addNewLike } from '../adapters/LikesAdapter';
+import Spinner from 'react-bootstrap/Spinner';
 
 
 class PetPage extends Component {
@@ -17,7 +18,7 @@ class PetPage extends Component {
     const { pet, loading, addNewLike, history } = this.props;
 
     if (loading || pet === null) {
-      return <p>Loading...</p>
+      return <Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>
     } else {
       return (
         <div>

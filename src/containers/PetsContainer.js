@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchPets, fetchType } from '../adapters/PetsAdapter'
 import PetCard from '../components/PetCard'
 import PageNav from '../components/PageNav'
-import Container from 'react-bootstrap/Container'
+import Spinner from 'react-bootstrap/Spinner'
 
 class PetsContainer extends Component {
   state = {
@@ -74,7 +74,7 @@ class PetsContainer extends Component {
   handleLoading = () => {
     const { pets, loading } = this.props;
     if (loading) {
-      return <p>Finding Pets...</p>
+      return <Spinner animation="border" role="status"><span className="sr-only">Finding Pets...</span></Spinner>
     } else {
       return <div className='PetCards'>
         {pets.map(pet => {
