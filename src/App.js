@@ -36,9 +36,13 @@ class App extends React.Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/pets" component={PetsContainer} />
-            <Route path="/pets/:id" component={PetPage} />
+            <Route path="/pets/:id" render={props => {
+              const id = props.match.params.id
+              const history = props.history
+              return <PetPage id={id} history={history} />
+            }} />
             <Route exact path="/types/:type" render={props => {
-              let type = props.match.params.type
+              const type = props.match.params.type
               return <PetsContainer key={type} type={type} />
             }} />
           </Switch>
