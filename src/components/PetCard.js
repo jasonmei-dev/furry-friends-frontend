@@ -8,7 +8,7 @@ const PetCard = ({ likeId, pet, addNewLike, myLikes, deleteMyLike }) => {
   const petId = pet.pet_api_id || pet.id
   let imgUrl
 
-  pet.primary_photo_cropped ? imgUrl = pet.primary_photo_cropped.medium : imgUrl = ''
+  pet.primary_photo_cropped ? imgUrl = pet.primary_photo_cropped.medium : imgUrl = '/images/no-photo.jpg'
 
   const like = () => {
     addNewLike(pet);
@@ -25,10 +25,10 @@ const PetCard = ({ likeId, pet, addNewLike, myLikes, deleteMyLike }) => {
       </div>
 
       <Card.Body className='pet-card-details'>
-        <Card.Title>{pet.name}</Card.Title>
+        <Card.Title className='card-text' >{pet.name}</Card.Title>
         { pet.breeds.secondary
-          ? <Card.Subtitle>{pet.breeds.primary} / {pet.breeds.secondary}</Card.Subtitle>
-          : <Card.Subtitle>{pet.breeds.primary}</Card.Subtitle> }
+          ? <Card.Subtitle className='card-text'>{pet.breeds.primary} / {pet.breeds.secondary}</Card.Subtitle>
+          : <Card.Subtitle className='card-text'>{pet.breeds.primary}</Card.Subtitle> }
 
         {likeId
           ? <button onClick={unlike} className='pet-remove-button'>Delete</button>
