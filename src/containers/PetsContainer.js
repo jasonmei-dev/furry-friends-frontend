@@ -86,13 +86,13 @@ class PetsContainer extends Component {
 
   render() {
     return (
-      <div>
-        <Container fluid>
-          <h3>Furry Friends for Adoption Near You</h3>
+      <>
+      <h3>Furry Friends for Adoption Near You</h3>
+        <div className="PetsContainer">
           {this.handleLoading()}
-        </Container>
+        </div>
         <PageNav previousPage={this.previousPage} nextPage={this.nextPage} page={this.state.page} />
-      </div>
+      </>
     )
   }
 }

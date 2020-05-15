@@ -25,10 +25,12 @@ class HomeCards extends Component {
 
   render() {
     return (
-      <Container fluid>
+      <>
         <h3>Furry Friends for Adoption Near You</h3>
-        {this.handleLoading()}
-      </Container>
+        <div className="PetsContainer">
+          {this.handleLoading()}
+        </div>
+      </>
     )
   }
 }

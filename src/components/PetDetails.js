@@ -6,8 +6,8 @@ const PetDetails = ({ currentPet }) => {
 
   return (
     <div className='PetDetails'>
+      <h1>{name}</h1>
       <div className='pet-details'>
-        <h1>{name}</h1>
         <ul>
           <li>Species: {species}</li>
           <li>Breed: { breeds.secondary !== null ? <span>{breeds.primary} / {breeds.secondary}</span> : <span>{breeds.primary}</span>}</li>
