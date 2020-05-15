@@ -1,4 +1,5 @@
 import { setLikes, addLike, deleteLike } from '../actions/myLikes';
+import Swal from 'sweetalert2'
 
 export const fetchLikes = () => {
   return dispatch => {
@@ -30,9 +31,18 @@ export const addNewLike = pet => {
     .then(response => response.json())
     .then(resp => {
       if (resp.error) {
-        alert(resp.error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Unable to Add',
+          text: `${resp.error}`
+        })
       } else {
         dispatch(addLike(resp))
+        Swal.fire({
+          icon: 'success',
+          title: 'Added',
+          text: 'Pet has been added!'
+        })
       }
     })
     .catch(console.log)

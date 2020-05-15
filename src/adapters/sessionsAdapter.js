@@ -3,6 +3,7 @@ import { resetLoginForm } from '../actions/loginForm';
 import { resetSignUpForm } from '../actions/signupForm';
 import { clearLikes } from '../actions/myLikes';
 import { fetchLikes } from '../adapters/LikesAdapter';
+import Swal from 'sweetalert2'
 
 export const login = credentials => {
   return dispatch => {
@@ -17,7 +18,11 @@ export const login = credentials => {
     .then(response => response.json())
     .then(resp => {
       if (resp.error) {
-        alert(resp.error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Unable to Log In',
+          text: `${resp.error}`
+        })
       } else {
         dispatch(setCurrentUser(resp.data))
         dispatch(fetchLikes())
@@ -70,7 +75,11 @@ export const signup = formData => {
     .then(response => response.json())
     .then(resp => {
       if (resp.error) {
-        alert(resp.error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Failed to Sign Up',
+          text: `${resp.error}`
+        })
       } else {
         dispatch(setCurrentUser(resp.data))
         dispatch(resetSignUpForm())
