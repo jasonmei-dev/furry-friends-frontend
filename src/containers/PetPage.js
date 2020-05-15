@@ -9,12 +9,12 @@ import { addNewLike } from '../adapters/LikesAdapter';
 class PetPage extends Component {
 
   componentDidMount() {
-    const { match } = this.props
-    this.props.getCurrentPet(match.params.id);
+    const { id } = this.props
+    this.props.getCurrentPet(id);
   }
 
   handleLoading = () => {
-    const { pet, loading, addNewLike } = this.props;
+    const { pet, loading, addNewLike, history } = this.props;
 
     if (loading || pet === null) {
       return <p>Loading...</p>
@@ -24,6 +24,7 @@ class PetPage extends Component {
           <PetCarousel currentPet={pet} />
           <PetDetails currentPet={pet} />
           <button onClick={() => addNewLike(pet)}>Add</button>
+          <button onClick={() => history.goBack()}>Back</button>
         </div>
       )
     }
