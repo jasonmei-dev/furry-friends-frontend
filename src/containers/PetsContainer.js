@@ -74,13 +74,20 @@ class PetsContainer extends Component {
   handleLoading = () => {
     const { pets, loading } = this.props;
     if (loading) {
-      return <Spinner animation="border" role="status"><span className="sr-only">Finding Pets...</span></Spinner>
+      return (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Finding Pets...</span>
+        </Spinner>
+      )
     } else {
-      return <div className='PetCards'>
-        {pets.map(pet => {
-          return <PetCard key={pet.id} pet={pet}/>
-        })}
-      </div>
+      return (
+        <div className='PetCards'>
+          {pets.map(pet => {
+            return <PetCard key={pet.id} pet={pet}/>
+          })}
+          <PageNav previousPage={this.previousPage} nextPage={this.nextPage} page={this.state.page} />
+        </div>
+      )
     }
   }
 
@@ -91,7 +98,6 @@ class PetsContainer extends Component {
         <div className="PetsContainer">
           {this.handleLoading()}
         </div>
-        <PageNav previousPage={this.previousPage} nextPage={this.nextPage} page={this.state.page} />
       </>
     )
   }

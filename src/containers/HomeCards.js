@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchAllPets } from '../adapters/PetsAdapter'
 import PetCard from '../components/PetCard'
 import Spinner from 'react-bootstrap/Spinner'
+import { Link } from 'react-router-dom';
 
 class HomeCards extends Component {
 
@@ -13,13 +14,20 @@ class HomeCards extends Component {
   handleLoading = () => {
     const { pets, loading } = this.props;
     if (loading) {
-      return <Spinner animation="border" role="status"><span className="sr-only">Finding Pets...</span></Spinner>
+      return (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Finding Pets...</span>
+        </Spinner>
+      )
     } else {
-      return <div className='PetCards'>
-        {pets.slice(0,4).map(pet => {
-          return <PetCard key={pet.id} pet={pet}/>
-        })}
-      </div>
+      return (
+        <div className='PetCards'>
+          {pets.slice(0,4).map(pet => {
+            return <PetCard key={pet.id} pet={pet}/>
+          })}
+          <Link to="/pets"><span>See more...</span></Link>
+        </div>
+      )
     }
   }
 
