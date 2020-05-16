@@ -21,12 +21,17 @@ class HomeCards extends Component {
       )
     } else {
       return (
-        <div className='PetCards'>
-          {pets.slice(0,4).map(pet => {
-            return <PetCard key={pet.id} pet={pet}/>
-          })}
-          <Link to="/pets"><span>See more...</span></Link>
-        </div>
+        <>
+          <div className='PetCards'>
+            {pets.slice(0,4).map(pet => {
+              return <PetCard key={pet.id} pet={pet}/>
+            })}
+          </div>
+
+          <div>
+            <Link to="/pets"><span>See more...</span></Link>
+          </div>
+        </>
       )
     }
   }
