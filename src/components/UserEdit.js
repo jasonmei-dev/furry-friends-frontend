@@ -1,7 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setCurrentUser } from '../actions/currentUser';
 
-class UserEdit extends PureComponent {
+class UserEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,6 +18,19 @@ class UserEdit extends PureComponent {
 
   handleSubmit = event => {
     event.preventDefault()
+    const { currentUser } = this.props
+    const updateData = { user: this.state }
+
+      fetch(`http://localhost:3001/api/v1/users/${currentUser.id}`, {
+        credentials: "include",
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updateData)
+      })
+      .then(response => response.json())
+      .then(console.log)
   }
 
   handleInputChange = event => {
@@ -39,8 +53,8 @@ class UserEdit extends PureComponent {
           <label>Country: <input type='text' name='country' placeholder='Country' value={this.state.country} onChange={this.handleInputChange}/></label><br/>
           <label>Post Code: <input type='text' name='postcode' placeholder='Post Code' value={this.state.postcode} onChange={this.handleInputChange}/></label><br/>
           <input type='submit' value='Update' />
-          <button onClick={() => history.goBack()}>Cancel</button>
         </form>}
+        <button onClick={() => history.goBack()}>Cancel</button>
       </>
     )
   }
@@ -52,4 +66,4 @@ const mapStateToProps = ({ currentUser }) => {
   }
 }
 
-export default connect(mapStateToProps)(UserEdit);
+export default connect(mapStateToProps, { setCurrentUser })(UserEdit);
