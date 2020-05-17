@@ -15,8 +15,12 @@ import './App.css';
 class App extends React.Component {
 
   componentDidMount() {
+    const { currentUser } = this.props
+
     this.props.getCurrentUser();
-    this.props.fetchLikes();
+    if (currentUser.id) {
+      this.props.fetchLikes();
+    }
   }
 
   render() {
