@@ -59,7 +59,7 @@ export const logout = event => {
   }
 }
 
-export const signup = formData => {
+export const signup = (formData, history) => {
   return dispatch => {
     const userInfo = {
       user: formData
@@ -83,6 +83,7 @@ export const signup = formData => {
       } else {
         dispatch(setCurrentUser(resp.data))
         dispatch(resetSignUpForm())
+        history.push("/")
       }
     })
     .catch(console.log)
