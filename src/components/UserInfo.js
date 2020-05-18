@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const UserInfo = ({ currentUser }) => {
   const { attributes } = currentUser
@@ -12,6 +14,8 @@ const UserInfo = ({ currentUser }) => {
         <li>Location: {city}, {state} {postcode}</li>
         <li>Country: {country}</li>
       </ul>
+
+      <Link to='/profile/edit'><button>Edit</button></Link>
     </div>
   )
 }

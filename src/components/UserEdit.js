@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setCurrentUser } from '../actions/currentUser';
+import { editUser } from '../adapters/UserEdit';
 
 class UserEdit extends Component {
   constructor(props) {
@@ -18,19 +19,10 @@ class UserEdit extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const { currentUser } = this.props
+    const { currentUser, editUser, history } = this.props
     const updateData = { user: this.state }
-
-      fetch(`http://localhost:3001/api/v1/users/${currentUser.id}`, {
-        credentials: "include",
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(updateData)
-      })
-      .then(response => response.json())
-      .then(console.log)
+    editUser(currentUser, updateData)
+    history.push("/profile")
   }
 
   handleInputChange = event => {
@@ -66,4 +58,4 @@ const mapStateToProps = ({ currentUser }) => {
   }
 }
 
-export default connect(mapStateToProps, { setCurrentUser })(UserEdit);
+export default connect(mapStateToProps, { setCurrentUser , editUser })(UserEdit);

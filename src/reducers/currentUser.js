@@ -22,6 +22,8 @@ export default (state = initialState, action) => {
       } else {
         return initialState
       }
+    case "UPDATE_CURRENT_USER":
+      return action.user
     case "CLEAR_CURRENT_USER":
       return initialState
     default:

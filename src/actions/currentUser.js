@@ -10,3 +10,10 @@ export const clearCurrentUser = () => {
     type: "CLEAR_CURRENT_USER"
   }
 }
+
+export const updateCurrentUser = user => {
+  return {
+    type: "UPDATE_CURRENT_USER",
+    user
+  }
+}
