@@ -1,17 +1,3 @@
-// const initialState = {
-//   id: 0,
-//   type: "",
-//   attributes: {
-//     first_name: "",
-//     last_name: "",
-//     email: "",
-//     city: "",
-//     state: "",
-//     country: "",
-//     postcode: ""
-//   }
-// }
-
 const initialState = {}
 
 export default (state = initialState, action) => {
