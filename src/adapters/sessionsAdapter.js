@@ -1,6 +1,4 @@
 import { setCurrentUser, clearCurrentUser } from '../actions/currentUser';
-import { resetLoginForm } from '../actions/loginForm';
-import { resetSignUpForm } from '../actions/signupForm';
 import { clearLikes } from '../actions/myLikes';
 import { fetchLikes } from '../adapters/LikesAdapter';
 import { clearPets } from '../actions/petfinder';
@@ -27,7 +25,6 @@ export const login = credentials => {
       } else {
         dispatch(setCurrentUser(resp.data))
         dispatch(fetchLikes())
-        dispatch(resetLoginForm())
       }
     })
     .catch(console.log)
@@ -84,7 +81,6 @@ export const signup = (formData, history) => {
         })
       } else {
         dispatch(setCurrentUser(resp.data))
-        dispatch(resetSignUpForm())
         history.push("/")
       }
     })

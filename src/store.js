@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 import currentUser from './reducers/currentUser';
-import loginForm from './reducers/loginForm';
-import signupForm from './reducers/signupForm';
+// import loginForm from './reducers/loginForm';
+// import signupForm from './reducers/signupForm';
 import petfinder from './reducers/petfinder';
 import currentPet from './reducers/currentPet';
 import myLikes from './reducers/myLikes';
@@ -11,8 +11,8 @@ import myLikes from './reducers/myLikes';
 const rootReducer = combineReducers({
   currentUser,
   currentPet,
-  loginForm,
-  signupForm,
+  // loginForm,
+  // signupForm,
   petfinder,
   myLikes
 });

@@ -1,37 +1,43 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateLoginForm } from '../actions/loginForm';
 import { login } from '../adapters/SessionsAdapter';
 
-const Login = ({ loginForm, updateLoginForm, login }) => {
-
-  const handleInputChange = event => {
-    const { name, value } = event.target
-    const updatedFormInfo = {
-      ...loginForm,
-      [name]: value
+class Login extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: "",
+      password: ""
     }
-    updateLoginForm(updatedFormInfo);
   }
 
-  const handleSubmit = event => {
+  handleInputChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = event => {
     event.preventDefault()
-    login(loginForm)
+    const { login } = this.props
+    login(this.state)
+    // this.setState({
+    //   email: "",
+    //   password: ""
+    // }, login(this.state))
   }
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>Email: <input type='text' name='email' placeholder='Email' value={loginForm.email} onChange={handleInputChange}/></label><br/>
-      <label>Password: <input type='text' name='password' placeholder="Password" value={loginForm.password} onChange={handleInputChange}/></label><br/>
-      <input type='submit' value='Log In' />
-    </form>
-  )
-};
-
-const mapStateToProps = ({ loginForm }) => {
-  return {
-    loginForm
+  render() {
+    return (
+      <>
+        <form onSubmit={this.handleSubmit}>
+        <label>Email: <input type='text' name='email' placeholder='Email' value={this.state.email} onChange={this.handleInputChange}/></label><br/>
+        <label>Password: <input type='text' name='password' placeholder="Password" value={this.state.password} onChange={this.handleInputChange}/></label><br/>
+        <input type='submit' value='Log In' />
+        </form>
+      </>
+    )
   }
 };
 
-export default connect(mapStateToProps, { updateLoginForm, login })(Login);
+export default connect(null, { login })(Login);
