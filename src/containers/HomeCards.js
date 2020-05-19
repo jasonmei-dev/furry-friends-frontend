@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchAllPets } from '../adapters/PetsAdapter'
+import { fetchPets } from '../adapters/PetsAdapter'
 import PetCard from '../components/PetCard'
 import Spinner from 'react-bootstrap/Spinner'
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 class HomeCards extends Component {
 
   componentDidMount() {
-    this.props.fetchAllPets()
+    this.props.fetchPets()
   }
 
   handleLoading = () => {
@@ -23,7 +23,7 @@ class HomeCards extends Component {
       return (
         <>
           <div className='PetCards'>
-            {pets.slice(0,4).map(pet => {
+            {pets && pets.slice(0,4).map(pet => {
               return <PetCard key={pet.id} pet={pet}/>
             })}
           </div>
@@ -55,4 +55,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect (mapStateToProps, { fetchAllPets })(HomeCards)
+export default connect (mapStateToProps, { fetchPets })(HomeCards)

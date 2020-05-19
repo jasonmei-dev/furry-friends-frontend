@@ -16,7 +16,7 @@ class PetsContainer extends Component {
       if (type.charAt(type.length - 1) !== "s") {
         fetchType(type, this.state.page)
       } else {
-        fetchType(type.slice(0, type.length -1),this.state.page)
+        fetchType(type.slice(0, type.length - 1),this.state.page)
       }
     } else {
       fetchPets(this.state.page)

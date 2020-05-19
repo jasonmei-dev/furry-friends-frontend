@@ -1,13 +1,14 @@
 import { loadingPets, getPets } from '../actions/petfinder';
 import { loadingPet, setCurrentPet } from '../actions/currentPet';
 
-export const fetchAllPets = () => {
+export const fetchPets = (page=1) => {
   return dispatch => {
     dispatch(loadingPets());
     fetch("http://localhost:3001/api/v1/pets", {
       credentials: "include",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        page
       }
     })
     .then(response => response.json())
@@ -16,25 +17,26 @@ export const fetchAllPets = () => {
   }
 }
 
-export const fetchPets = page => {
-  const pageNum = {
-    page
-  }
-  return dispatch => {
-    dispatch(loadingPets());
-    fetch("http://localhost:3001/api/v1/pets", {
-      credentials: "include",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(pageNum)
-    })
-    .then(response => response.json())
-    .then(pets => dispatch(getPets(pets.animals)))
-    .catch(console.log)
-  }
-}
+// export const fetchPets = page => {
+//   // const pageNum = {
+//   //   page
+//   // }
+//   return dispatch => {
+//     dispatch(loadingPets());
+//     fetch("http://localhost:3001/api/v1/pets", {
+//       credentials: "include",
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//         page
+//       }
+//       // body: JSON.stringify(pageNum)
+//     })
+//     .then(response => response.json())
+//     .then(pets => dispatch(getPets(pets.animals)))
+//     .catch(console.log)
+//   }
+// }
 
 export const getCurrentPet = petId => {
   return dispatch => {
@@ -53,19 +55,21 @@ export const getCurrentPet = petId => {
 }
 
 export const fetchType = (type, page) => {
-  const petType = {
-    type,
-    page
-  }
+  // const petType = {
+  //   type,
+  //   page
+  // }
   return dispatch => {
     dispatch(loadingPets());
     fetch("http://localhost:3001/api/v1/get_type", {
       credentials: "include",
-      method: "POST",
+      // method: "POST",
       headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(petType)
+        "Content-Type": "application/json",
+        type,
+        page
+      }
+      // body: JSON.stringify(petType)
     })
     .then(response => response.json())
     .then(pets => dispatch(getPets(pets.animals)))
