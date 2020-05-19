@@ -10,17 +10,16 @@ import Welcome from './components/Welcome';
 import PetsContainer from './containers/PetsContainer';
 import Profile from './containers/Profile';
 import PetPage from './containers/PetPage';
+import UserEdit from './components/UserEdit'
 import './App.css';
 
 class App extends React.Component {
 
   componentDidMount() {
-    const { currentUser } = this.props
+    // const { currentUser } = this.props
 
     this.props.getCurrentUser();
-    if (currentUser.id) {
-      this.props.fetchLikes();
-    }
+    this.props.fetchLikes();
   }
 
   render() {
@@ -38,6 +37,8 @@ class App extends React.Component {
               }
             }} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/profile/edit" component={UserEdit} />
+
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/pets" component={PetsContainer} />
             <Route path="/pets/:id" render={props => {
