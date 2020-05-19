@@ -17,27 +17,6 @@ export const fetchPets = (page=1) => {
   }
 }
 
-// export const fetchPets = page => {
-//   // const pageNum = {
-//   //   page
-//   // }
-//   return dispatch => {
-//     dispatch(loadingPets());
-//     fetch("http://localhost:3001/api/v1/pets", {
-//       credentials: "include",
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//         page
-//       }
-//       // body: JSON.stringify(pageNum)
-//     })
-//     .then(response => response.json())
-//     .then(pets => dispatch(getPets(pets.animals)))
-//     .catch(console.log)
-//   }
-// }
-
 export const getCurrentPet = petId => {
   return dispatch => {
     dispatch(loadingPet());
@@ -55,21 +34,15 @@ export const getCurrentPet = petId => {
 }
 
 export const fetchType = (type, page) => {
-  // const petType = {
-  //   type,
-  //   page
-  // }
   return dispatch => {
     dispatch(loadingPets());
     fetch("http://localhost:3001/api/v1/get_type", {
       credentials: "include",
-      // method: "POST",
       headers: {
         "Content-Type": "application/json",
         type,
         page
       }
-      // body: JSON.stringify(petType)
     })
     .then(response => response.json())
     .then(pets => dispatch(getPets(pets.animals)))
