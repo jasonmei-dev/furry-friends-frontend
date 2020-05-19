@@ -3,6 +3,7 @@ import { resetLoginForm } from '../actions/loginForm';
 import { resetSignUpForm } from '../actions/signupForm';
 import { clearLikes } from '../actions/myLikes';
 import { fetchLikes } from '../adapters/LikesAdapter';
+import { clearPets } from '../actions/petfinder';
 import Swal from 'sweetalert2'
 
 export const login = credentials => {
@@ -51,6 +52,7 @@ export const getCurrentUser = () => {
 export const logout = event => {
   return dispatch => {
     dispatch(clearCurrentUser())
+    dispatch(clearPets())
     dispatch(clearLikes())
     fetch("http://localhost:3001/api/v1/logout", {
       credentials: "include",
