@@ -6,8 +6,11 @@ import PageNav from '../components/PageNav'
 import Spinner from 'react-bootstrap/Spinner'
 
 class PetsContainer extends Component {
-  state = {
-    page: 1
+  constructor(props) {
+    super(props)
+    this.state = {
+      page: 1
+    }
   }
 
   componentDidMount() {
