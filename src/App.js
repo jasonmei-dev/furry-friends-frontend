@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './adapters/SessionsAdapter';
-import { fetchLikes } from './adapters/LikesAdapter';
 import NavBar from './components/NavBar';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
@@ -16,10 +15,7 @@ import './App.css';
 class App extends React.Component {
 
   componentDidMount() {
-    // const { currentUser } = this.props
-
     this.props.getCurrentUser();
-    this.props.fetchLikes();
   }
 
   render() {
@@ -63,4 +59,4 @@ const mapStateToProps = ({currentUser}) => {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentUser, fetchLikes })(App);
+export default connect(mapStateToProps, { getCurrentUser })(App);
