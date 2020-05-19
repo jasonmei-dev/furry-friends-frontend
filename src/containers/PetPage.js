@@ -4,6 +4,7 @@ import PetCarousel from '../components/PetCarousel';
 import { connect } from 'react-redux';
 import { getCurrentPet } from '../adapters/PetsAdapter';
 import { addNewLike } from '../adapters/LikesAdapter';
+import { clearCurrentPet } from '../actions/currentPet';
 import Spinner from 'react-bootstrap/Spinner';
 
 
@@ -12,6 +13,11 @@ class PetPage extends Component {
   componentDidMount() {
     const { id } = this.props
     this.props.getCurrentPet(id);
+  }
+
+  componentWillUnmount() {
+    const { clearCurrentPet } = this.props
+    clearCurrentPet();
   }
 
   handleLoading = () => {
@@ -47,4 +53,4 @@ const mapStateToProps = ({ currentPet }) => {
   }
 }
 
-export default connect(mapStateToProps, { getCurrentPet, addNewLike })(PetPage);
+export default connect(mapStateToProps, { getCurrentPet, addNewLike, clearCurrentPet })(PetPage);
