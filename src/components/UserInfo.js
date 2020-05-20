@@ -10,9 +10,9 @@ const UserInfo = ({ currentUser }) => {
     <div className='UserInfo'>
       <h1>{first_name} {last_name}</h1>
       <ul>
-        <li>Email: {email}</li>
-        <li>Location: {city}, {state} {postcode}</li>
-        <li>Country: {country}</li>
+        <li><strong>Email:</strong> {email}</li>
+        <li><strong>Location:</strong> {city}, {state} {postcode}</li>
+        <li><strong>Country:</strong> {country}</li>
       </ul>
 
       <Link to='/profile/edit'><button>Edit</button></Link>

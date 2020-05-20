@@ -31,7 +31,7 @@ class PetPage extends Component {
       )
     } else {
       return (
-        <div>
+        <div className="PetPage">
           <PetCarousel currentPet={pet} />
           <PetDetails currentPet={pet} />
           <button onClick={() => addNewLike(pet)}>Add</button>
