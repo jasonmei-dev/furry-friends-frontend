@@ -24,7 +24,11 @@ class PetPage extends Component {
     const { pet, loading, addNewLike, history } = this.props;
 
     if (loading || pet === null) {
-      return <Spinner animation="border" role="status"><span className="sr-only">Loading...</span></Spinner>
+      return (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      )
     } else {
       return (
         <div>

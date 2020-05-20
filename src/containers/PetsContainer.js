@@ -85,7 +85,7 @@ class PetsContainer extends Component {
     } else {
       return (
         <div className='PetCards'>
-          {pets.map(pet => {
+          {pets && pets.map(pet => {
             return <PetCard key={pet.id} pet={pet}/>
           })}
           <PageNav previousPage={this.previousPage} nextPage={this.nextPage} page={this.state.page} />
