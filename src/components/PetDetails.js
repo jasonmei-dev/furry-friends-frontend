@@ -21,8 +21,8 @@ const PetDetails = ({ currentPet }) => {
         <h3>Contact</h3>
         <ul>
           <li>Email: {contact.email}</li>
-          <li>Phone: {contact.phone}</li>
-          <li>Location: {contact.address.address1}, {contact.address.city}, {contact.address.state} {contact.address.postcode}</li>
+          { contact.phone && <li>Phone: {contact.phone}</li> }  
+          <li>Location: {contact.address.city}, {contact.address.state} {contact.address.postcode}</li>
           <li>Country: {contact.address.country}</li>
         </ul>
       </div>
