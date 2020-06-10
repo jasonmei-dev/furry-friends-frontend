@@ -3,14 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './adapters/SessionsAdapter';
 import { fetchLikes } from './adapters/LikesAdapter';
-import NavBar from './components/NavBar';
+import NavBar from './components/Navbar';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
 import Welcome from './components/Welcome';
 import PetsContainer from './containers/PetsContainer';
 import Profile from './containers/Profile';
 import PetPage from './containers/PetPage';
-import UserEdit from './components/UserEdit'
+import UserEdit from './components/UserEdit';
 import './App.css';
 
 class App extends React.Component {
