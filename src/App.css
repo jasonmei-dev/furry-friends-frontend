@@ -17,6 +17,10 @@
   margin: 100px auto;
 }
 
+.page-nav {
+  margin: 20px;
+}
+
 .cards-container {
   width: 950px;
   display: inline-block;
