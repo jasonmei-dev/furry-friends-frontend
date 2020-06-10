@@ -9,7 +9,7 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
   let types = ['Dogs', 'Cats', 'Rabbits', 'Small & Furry', 'Horses', 'Birds', 'Scales, Fins & Other', 'Barnyard']
 
   if (!loggedIn) {
-    return ""
+    return null
   }
 
   return (

@@ -9,7 +9,8 @@ class PetsContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      page: 1
+      page: 1,
+      sort: false
     }
   }
 
@@ -74,8 +75,8 @@ class PetsContainer extends Component {
     }
   }
 
-  handleLoading = () => {
-    const { pets, loading } = this.props;
+  handleLoading = (pets) => {
+    const { loading } = this.props;
     if (loading) {
       return (
         <Spinner animation="border" role="status">
@@ -94,17 +95,40 @@ class PetsContainer extends Component {
     }
   }
 
+  handleClick = () => {
+    this.setState({
+      sort: !this.state.sort
+    })
+  }
+
   render() {
+    const { pets } = this.props
+    const petsSorted = [...pets].sort((a,b) => a.name.localeCompare(b.name))
+
     return (
       <>
       <h3>Furry Friends for Adoption Near You</h3>
-        <div className="PetsContainer">
-          {this.handleLoading()}
-        </div>
+      <button onClick={this.handleClick}>Click Me!</button>
+        { this.state.sort
+          ? <div className="PetsContainer">{this.handleLoading(petsSorted)}</div>
+          : <div className="PetsContainer">{this.handleLoading(pets)}</div>
+        }
       </>
     )
   }
 }
+
+// render() {
+//     return (
+//       <>
+//       <h3>Furry Friends for Adoption Near You</h3>
+//         <div className="PetsContainer">
+//           {this.handleLoading()}
+//         </div>
+//       </>
+//     )
+//   }
+// }
 
 const mapStateToProps = ({ petfinder }) => {
   return {

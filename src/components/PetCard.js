@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addNewLike, deleteMyLike } from '../adapters/LikesAdapter';
 import Card from 'react-bootstrap/Card';
+import LikeBtn from './LikeBtn';
 
 const PetCard = ({ likeId, pet, addNewLike, myLikes, deleteMyLike }) => {
   const petId = pet.pet_api_id || pet.id
@@ -30,13 +31,14 @@ const PetCard = ({ likeId, pet, addNewLike, myLikes, deleteMyLike }) => {
           ? <Card.Subtitle className='card-text'>{pet.breeds.primary} / {pet.breeds.secondary}</Card.Subtitle>
           : <Card.Subtitle className='card-text'>{pet.breeds.primary}</Card.Subtitle> }
 
+        <LikeBtn />
         {likeId
           ? <button onClick={unlike} className='pet-remove-button'>Delete</button>
           : <button onClick={like} className='pet-save-button'>Add</button>}
 
-          <Link to={`/pets/${petId}`}>
-            <button className='pet-details-button'>Details</button>
-          </Link>
+        <Link to={`/pets/${petId}`}>
+          <button className='pet-details-button'>Details</button>
+        </Link>
       </Card.Body>
     </Card>
   )
