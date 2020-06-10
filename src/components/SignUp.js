@@ -27,23 +27,14 @@ class SignUp extends Component {
     event.preventDefault()
     const { signup, history } = this.props
     signup(this.state, history)
-    // this.setState({
-    //   first_name: "",
-    //   last_name: "",
-    //   email: "",
-    //   password: "",
-    //   city: "",
-    //   state: "",
-    //   country: "",
-    //   postcode: ""
-    // }, signup(this.state, history))
   }
 
   render() {
     const { history } = this.props
     return (
-      <div>
+      <div className="SignUp">
         <h3>Sign Up</h3>
+        <br></br>
         <form onSubmit={this.handleSubmit}>
           <label>First Name: <input type='text' name='first_name' placeholder='First Name' value={this.state.first_name} onChange={this.handleInputChange}/></label><br/>
           <label>Last Name: <input type='text' name='last_name' placeholder='Last Name' value={this.state.last_name} onChange={this.handleInputChange}/></label><br/>
@@ -53,10 +44,11 @@ class SignUp extends Component {
           <label>State: <input type='text' name='state' placeholder='State' value={this.state.state} onChange={this.handleInputChange}/></label><br/>
           <label>Country: <input type='text' name='country' placeholder='Country' value={this.state.country} onChange={this.handleInputChange}/></label><br/>
           <label>Post Code: <input type='text' name='postcode' placeholder='Post Code' value={this.state.postcode} onChange={this.handleInputChange}/></label><br/>
-          <label></label><input type='submit' value='Sign Up' />
+          <br></br>
+          <input type='submit' value='Sign Up' />
+          <button onClick={() => history.push('/')}>Cancel</button>
         </form>
-
-        <button onClick={() => history.goBack()}>Cancel</button>
+        <br></br>
       </div>
     )
   }

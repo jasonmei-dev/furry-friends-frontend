@@ -34,7 +34,9 @@ class UserEdit extends Component {
   render() {
     const { currentUser, history } = this.props
     return (
-      <>
+      <div className='UserEdit'>
+        <h3>Edit Account Info</h3>
+        <br></br>
         {currentUser.id &&
         <form onSubmit={this.handleSubmit}>
           <label>First Name: <input type='text' name='first_name' placeholder='First Name' value={this.state.first_name} onChange={this.handleInputChange}/></label><br/>
@@ -44,10 +46,12 @@ class UserEdit extends Component {
           <label>State: <input type='text' name='state' placeholder='State' value={this.state.state} onChange={this.handleInputChange}/></label><br/>
           <label>Country: <input type='text' name='country' placeholder='Country' value={this.state.country} onChange={this.handleInputChange}/></label><br/>
           <label>Post Code: <input type='text' name='postcode' placeholder='Post Code' value={this.state.postcode} onChange={this.handleInputChange}/></label><br/>
+          <br></br>
           <input type='submit' value='Update' />
+          <button onClick={() => history.goBack()}>Cancel</button>
         </form>}
-        <button onClick={() => history.goBack()}>Cancel</button>
-      </>
+        <br></br>
+      </div>
     )
   }
 }

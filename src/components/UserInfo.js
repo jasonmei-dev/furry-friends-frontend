@@ -15,7 +15,7 @@ const UserInfo = ({ currentUser }) => {
         <li><strong>Country:</strong> {country}</li>
       </ul>
 
-      <Link to='/profile/edit'><button>Edit</button></Link>
+      <Link to='/profile/edit'><button>Edit Account Info</button></Link>
     </div>
   )
 }
