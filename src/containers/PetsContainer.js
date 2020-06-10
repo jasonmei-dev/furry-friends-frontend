@@ -78,7 +78,7 @@ class PetsContainer extends Component {
     const { pets, loading } = this.props;
     if (loading) {
       return (
-        <Spinner animation="border" role="status">
+        <Spinner className="spinner" animation="border" role="status">
           <span className="sr-only">Finding Pets...</span>
         </Spinner>
       )

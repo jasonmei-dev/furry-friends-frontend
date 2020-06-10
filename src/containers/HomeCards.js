@@ -15,7 +15,7 @@ class HomeCards extends Component {
     const { pets, loading } = this.props;
     if (loading) {
       return (
-        <Spinner animation="border" role="status">
+        <Spinner className="spinner" animation="border" role="status">
           <span className="sr-only">Finding Pets...</span>
         </Spinner>
       )
@@ -27,10 +27,8 @@ class HomeCards extends Component {
               return <PetCard key={pet.id} pet={pet}/>
             })}
           </div>
-
-          <div>
-            <Link to="/pets"><span>See more...</span></Link>
-          </div>
+          <br></br>
+          <Link to="/pets"><span>See more...</span></Link>
         </>
       )
     }

@@ -37,6 +37,10 @@
   box-shadow: 5px 5px 12px #686868;
 }
 
+.spinner {
+  display: inline-block;
+  margin: 100px auto;
+}
 .carousel {
   background: black;
 }

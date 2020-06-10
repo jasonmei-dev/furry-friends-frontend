@@ -25,7 +25,7 @@ class PetPage extends Component {
 
     if (loading || pet === null) {
       return (
-        <Spinner animation="border" role="status">
+        <Spinner className="spinner" animation="border" role="status">
           <span className="sr-only">Loading...</span>
         </Spinner>
       )
