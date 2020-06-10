@@ -7,7 +7,9 @@ import NavBar from './components/Navbar';
 import SignUp from './components/SignUp';
 import Home from './components/Home';
 import Welcome from './components/Welcome';
+import Login from './components/Login';
 import PetsContainer from './containers/PetsContainer';
+import HomeCards from './containers/HomeCards';
 import Profile from './containers/Profile';
 import PetPage from './containers/PetPage';
 import UserEdit from './components/UserEdit';
@@ -29,9 +31,9 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" render={() => {
               if (currentUser.id) {
-                return <Home />
+                return <HomeCards />
               } else {
-                return <Welcome />
+                return <Login />
               }
             }} />
             <Route exact path="/profile" component={Profile} />
