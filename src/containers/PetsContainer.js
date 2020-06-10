@@ -84,7 +84,7 @@ class PetsContainer extends Component {
       )
     } else {
       return (
-        <div className='PetCards'>
+        <div className='pet-cards'>
           {pets && pets.map(pet => {
             return <PetCard key={pet.id} pet={pet}/>
           })}
@@ -96,12 +96,12 @@ class PetsContainer extends Component {
 
   render() {
     return (
-      <>
+      <div className="PetsContainer">
       <h3>Furry Friends for Adoption Near You</h3>
-        <div className="PetsContainer">
+        <div className="cards-container">
           {this.handleLoading()}
         </div>
-      </>
+      </div>
     )
   }
 }

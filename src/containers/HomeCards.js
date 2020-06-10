@@ -22,7 +22,7 @@ class HomeCards extends Component {
     } else {
       return (
         <>
-          <div className='PetCards'>
+          <div className='pet-cards'>
             {pets && pets.slice(0,4).map(pet => {
               return <PetCard key={pet.id} pet={pet}/>
             })}
@@ -38,12 +38,12 @@ class HomeCards extends Component {
 
   render() {
     return (
-      <>
+      <div className="HomeCards">
         <h3>Furry Friends for Adoption Near You</h3>
-        <div className="PetsContainer">
+        <div className="cards-container">
           {this.handleLoading()}
         </div>
-      </>
+      </div>
     )
   }
 }

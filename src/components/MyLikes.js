@@ -6,11 +6,12 @@ const MyLikes = ({ myLikes }) => {
   const petCards = myLikes.map(like => <PetCard key={like.data.attributes.pet.pet_api_id} likeId={like.data.id} pet={like.data.attributes.pet}/>)
 
   return (
-    <div className='favorites-container'>
+    <div className='MyLikes'>
       <h1>My Favorites</h1>
-
-      <div className='MyLikes'>
-        {petCards}
+      <div className="cards-container">
+        <div className='pet-cards'>
+          {petCards}
+        </div>
       </div>
     </div>
   )
