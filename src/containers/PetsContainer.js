@@ -90,7 +90,7 @@ class PetsContainer extends Component {
               return <PetCard key={pet.id} pet={pet}/>
             })}
           </div>
-          
+
           <PageNav previousPage={this.previousPage} nextPage={this.nextPage} page={this.state.page} />
         </>
       )
@@ -100,7 +100,7 @@ class PetsContainer extends Component {
   render() {
     return (
       <div className="PetsContainer">
-      <h3>Furry Friends for Adoption Near You</h3>
+      <h2>Furry Friends for Adoption Near You</h2>
         <div className="cards-container">
           {this.handleLoading()}
         </div>
