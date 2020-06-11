@@ -31,7 +31,7 @@ class Login extends Component {
         <br></br>
         <form onSubmit={this.handleSubmit}>
           <label>Email: <input type='text' name='email' placeholder='Email' value={this.state.email} onChange={this.handleInputChange}/></label><br/>
-          <label>Password: <input type='text' name='password' placeholder="Password" value={this.state.password} onChange={this.handleInputChange}/></label><br/>
+          <label>Password: <input type='password' name='password' placeholder="Password" value={this.state.password} onChange={this.handleInputChange}/></label><br/>
           <input type='submit' value='Log In' />
         </form>
         <br></br>
