@@ -7,7 +7,7 @@ Furry Friends is a single page web application where you can search through adop
 1. Open and run `$ npm install`
 2. Run `$ npm start`
 
-To start the whole application, please clone the backend as well: https://github.com/jmei403/furry-friends-backend
+To start the whole application, please clone the backend as well: https://github.com/jasonmei-dev/furry-friends-backend
 
 ### Contributing
 

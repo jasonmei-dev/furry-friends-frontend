@@ -7,7 +7,6 @@ import NavBar from "./components/Navbar";
 import SignUp from "./components/SignUp";
 // import Home from './components/Home';
 // import Welcome from './components/Welcome';
-// Test comment
 import Login from "./components/Login";
 import PetsContainer from "./containers/PetsContainer";
 import HomeCards from "./containers/HomeCards";
