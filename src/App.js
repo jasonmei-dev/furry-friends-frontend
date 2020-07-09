@@ -6,7 +6,7 @@ import { fetchLikes } from "./adapters/LikesAdapter";
 import NavBar from "./components/Navbar";
 import SignUp from "./components/SignUp";
 // import Home from './components/Home';
-// import Welcome from './components/Welcome';
+import Welcome from "./components/Welcome";
 import Login from "./components/Login";
 import PetsContainer from "./containers/PetsContainer";
 import HomeCards from "./containers/HomeCards";
@@ -35,13 +35,13 @@ class App extends React.Component {
                 if (currentUser.id) {
                   return <HomeCards />;
                 } else {
-                  return <Login />;
+                  return <Welcome />;
                 }
               }}
             />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/profile/edit" component={UserEdit} />
-
+            <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/pets" component={PetsContainer} />
             <Route
