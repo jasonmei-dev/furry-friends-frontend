@@ -166,7 +166,7 @@ li {
 }
 
 /* Old Styles */
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -219,9 +219,9 @@ li {
   object-fit: contain;
 }
 
-/* ul {
+ul {
   list-style-type: none;
-} */
+}
 
 .card-image {
   height: 225px;
@@ -233,4 +233,4 @@ li {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
+} */
