@@ -1,20 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+:root {
+  --primary-color: #333;
+  --secondary-color: #f7c08a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: "Montserrat", sans-serif; */
+}
+
+/* Ultilities */
+.container {
+  margin: auto;
+  max-width: 1100px;
+  overflow: auto;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-size: 1rem;
+  color: #fff;
+  background: var(--primary-color);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.login-btn,
+.signup-btn {
+  margin: 0 10px;
+  width: 105px;
+}
+
+/* Navbar */
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary-color);
+  color: #fff;
+  width: 100%;
+  /* height: 70px; */
+  padding: 0 30px;
+}
+
+#navbar .logo a {
+  color: #fff;
+}
+
+#navbar ul {
+  display: flex;
+}
+
+#navbar ul li {
+  padding: 1rem;
+  position: relative;
+}
+
+#navbar ul li a {
+  color: #fff;
+  margin: 0 5px;
+}
+
+#navbar ul li:hover {
+  cursor: pointer;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+#navbar ul li:hover a {
+  color: var(--primary-color);
+}
+
+/* Nav Dropdown */
+#navbar ul li ul {
+  display: none;
+}
+
+#navbar ul li:hover ul {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 200px;
+  margin-top: 1rem;
+}
+
+#navbar ul li:hover ul li {
+  display: block;
+  background: var(--primary-color);
+}
+
+#navbar ul li:hover ul li a {
+  color: #fff;
+}
+
+#navbar ul li:hover ul li:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+#navbar ul li:hover ul li:hover a {
+  color: var(--primary-color);
+}
+
+/* Welcome */
+#welcome {
+  background: url("/images/showcase.jpg") no-repeat center center / cover;
+  position: relative;
+  height: 600px;
+  /* height: 100vh; */
+}
+
+#welcome .welcome-content {
+  color: #fff;
+  text-align: center;
+  padding-top: 170px;
+}
+
+#welcome .welcome-content h1 {
+  font-size: 60px;
+  line-height: 1.2;
+}
+
+#welcome .welcome-content p {
+  padding-bottom: 20px;
+  line-height: 1.7;
+}
+
+#welcome:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#welcome * {
+  position: relative;
+  z-index: 10;
+}
+
+/* Old Styles */
 .App {
   text-align: center;
 }
 
-.Navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.Login, .SignUp, .UserEdit {
+.Login,
+.SignUp,
+.UserEdit {
   border: solid;
   border-radius: 20px;
   width: 450px;
   padding: 20px;
   display: inline-block;
   margin: 100px auto;
+  background: #fff;
 }
 
 .page-nav {
@@ -54,9 +219,9 @@
   object-fit: contain;
 }
 
-ul {
+/* ul {
   list-style-type: none;
-}
+} */
 
 .card-image {
   height: 225px;
