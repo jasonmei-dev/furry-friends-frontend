@@ -25,7 +25,7 @@ export const login = (credentials, history) => {
         } else {
           dispatch(setCurrentUser(resp.data));
           dispatch(fetchLikes());
-          history.push("/");
+          history.push("/"); // redirect to home
         }
       })
       .catch(console.log);
