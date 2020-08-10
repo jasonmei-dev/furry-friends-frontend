@@ -26,36 +26,43 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
-        <h3>Log In To Meet Your New Furry Friend!</h3>
-        <br></br>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Email:{" "}
-            <input
-              type="text"
-              name="email"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <br />
-          <label>
-            Password:{" "}
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <br />
-          <input type="submit" value="Log In" />
-        </form>
-        <br></br>
-        <p>Don't have an account? {<Link to="/signup">Sign Up</Link>}</p>
+      <div className="Login" id="login-form">
+        <div className="form-container">
+          <div className="form-content">
+            <div className="form-group">
+              <h2>Login</h2>
+              <h3>To Meet Your New Furry Friend!</h3>
+            </div>
+            <form onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <label>Email</label>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <input className="btn" type="submit" value="Log In" />
+              </div>
+            </form>
+            <p>Don't have an account? {<Link to="/signup">Sign Up</Link>}</p>
+          </div>
+        </div>
       </div>
     );
   }

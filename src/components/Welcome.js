@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Login from "./Login";
 
 const Welcome = () => {
   return (
@@ -12,10 +11,10 @@ const Welcome = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
             voluptatem quos quod iusto, doloribus itaque.
           </p>
-          <Link class="btn login-btn" to="/login">
+          <Link className="btn login-btn" to="/login">
             Log In
           </Link>
-          <Link class="btn signup-btn" to="/signup">
+          <Link className="btn signup-btn" to="/signup">
             Sign Up
           </Link>
         </div>

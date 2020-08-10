@@ -1,9 +1,12 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 :root {
+  --max-width: 1100px;
   --primary-color: #333;
   --secondary-color: #f7c08a;
+  --light-color: #f3f3f3;
+  --nav-height: 7.2vh;
 }
 
 * {
@@ -14,25 +17,25 @@
 
 body {
   /* font-family: "Montserrat", sans-serif; */
-}
-
-/* Ultilities */
-.container {
-  margin: auto;
-  max-width: 1100px;
-  overflow: auto;
-  padding: 0 20px;
+  background: var(--light-color);
 }
 
 a {
   text-decoration: none;
 }
 
-li {
+ul {
   list-style: none;
 }
 
-/* Buttons */
+/* Ultilities */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 2rem;
+}
+
 .btn {
   display: inline-block;
   font-size: 1rem;
@@ -42,6 +45,14 @@ li {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.btn a {
+  color: #fff;
+}
+
+.btn:hover a {
+  color: var(--primary-color);
 }
 
 .btn:hover {
@@ -63,8 +74,11 @@ li {
   background: var(--primary-color);
   color: #fff;
   width: 100%;
-  /* height: 70px; */
+  position: sticky;
+  top: 0;
   padding: 0 30px;
+  z-index: 10;
+  height: 7.2vh;
 }
 
 #navbar .logo a {
@@ -130,8 +144,8 @@ li {
 #welcome {
   background: url("/images/showcase.jpg") no-repeat center center / cover;
   position: relative;
-  height: 600px;
-  /* height: 100vh; */
+  /* height: 600px; */
+  height: calc(100vh - 7.2vh);
 }
 
 #welcome .welcome-content {
@@ -162,8 +176,162 @@ li {
 
 #welcome * {
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
+
+/* Home */
+.showcase {
+  background: url("/images/showcase2.jpg") no-repeat center center / cover;
+  position: relative;
+  height: 400px;
+}
+
+.showcase .showcase-content {
+  color: #fff;
+  text-align: center;
+  padding-top: 130px;
+}
+
+.showcase .showcase-content h1 {
+  font-size: 60px;
+  line-height: 1.2;
+}
+
+.showcase .showcase-content p {
+  padding-bottom: 20px;
+  line-height: 1.7;
+}
+
+.showcase:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.showcase * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-cards {
+  margin-bottom: 25px;
+}
+.home-cards h2 {
+  font-size: 30px;
+  line-height: 1.6;
+  margin: 25px 0;
+  text-align: center;
+}
+
+/* Pet Cards */
+.pet-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  align-items: center;
+}
+
+.PetCard {
+  background: #fff;
+  color: #000;
+  box-shadow: 5px 5px 12px #ccc;
+  border-radius: 15px;
+  text-align: center;
+  width: 200px;
+}
+
+.card-image {
+  height: 250px;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-details {
+  padding: 5px 16px;
+  margin-bottom: 5px;
+}
+
+.card-details h3,
+.card-details p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-details * {
+  margin-bottom: 5px;
+}
+
+/* Footer */
+.Footer {
+  text-align: center;
+  background: #444;
+  color: #fff;
+  padding: 20px;
+}
+
+/* Login & Signup Page */
+#login-form,
+#signup-form {
+  background: url("/images/background-1.jpg") no-repeat center center / cover;
+  height: calc(100vh - var(--nav-height));
+}
+
+#login-form .form-container,
+#signup-form .form-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* border: 1px solid black; */
+}
+
+#login-form h2,
+#signup-form h2 {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#login-form h3,
+#signup-form h3 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+#login-form .form-group {
+  margin-bottom: 20px;
+}
+
+#login-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#login-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px var(--primary-color) solid;
+}
+
+#login-form .btn {
+  border-radius: 15px;
+}
+
+/* Signup Form */
 
 /* Old Styles */
 /* .App {
@@ -184,53 +352,34 @@ li {
 
 .page-nav {
   margin: 20px;
-}
+} */
 
-.cards-container {
+/* .cards-container {
   width: 950px;
   display: inline-block;
-}
+} */
 
-.pet-cards {
+/* .pet-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 2rem 2rem;
   margin-right: 2rem;
   margin-left: 2rem;
-}
+} */
 
-.PetCard {
-  background: #424242;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  box-shadow: 5px 5px 12px #686868;
-}
-
-.spinner {
+/* .spinner {
   display: inline-block;
   margin: 100px auto;
-}
-.carousel {
+} */
+/* .carousel {
   background: black;
-}
+} */
 
-.pet-image {
+/* .pet-image {
   height: 400px;
   object-fit: contain;
-}
+} */
 
-ul {
+/* ul {
   list-style-type: none;
-}
-
-.card-image {
-  height: 225px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.card-text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 } */

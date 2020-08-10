@@ -5,11 +5,12 @@ import { getCurrentUser } from "./adapters/SessionsAdapter";
 import { fetchLikes } from "./adapters/LikesAdapter";
 import NavBar from "./components/Navbar";
 import SignUp from "./components/SignUp";
-// import Home from './components/Home';
+import Home from "./components/Home";
 import Welcome from "./components/Welcome";
+import SearchPage from "./components/SearchPage";
 import Login from "./components/Login";
-import PetsContainer from "./containers/PetsContainer";
-import HomeCards from "./containers/HomeCards";
+// import PetsContainer from "./containers/PetsContainer";
+// import HomeCards from "./containers/HomeCards";
 import Profile from "./containers/Profile";
 import PetPage from "./containers/PetPage";
 import UserEdit from "./components/UserEdit";
@@ -33,7 +34,7 @@ class App extends React.Component {
               path="/"
               render={() => {
                 if (currentUser.id) {
-                  return <HomeCards />;
+                  return <Home />;
                 } else {
                   return <Welcome />;
                 }
@@ -43,7 +44,7 @@ class App extends React.Component {
             <Route exact path="/profile/edit" component={UserEdit} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/pets" component={PetsContainer} />
+            <Route exact path="/pets" component={SearchPage} />
             <Route
               path="/pets/:id"
               render={(props) => {
@@ -57,7 +58,7 @@ class App extends React.Component {
               path="/types/:type"
               render={(props) => {
                 const type = props.match.params.type;
-                return <PetsContainer key={type} type={type} />;
+                return <SearchPage type={type} />;
               }}
             />
           </Switch>

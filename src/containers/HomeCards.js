@@ -1,56 +1,52 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchPets } from '../adapters/PetsAdapter'
-import PetCard from '../components/PetCard'
-import Spinner from 'react-bootstrap/Spinner'
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchPets } from "../adapters/PetsAdapter";
+import PetCard from "../components/PetCard";
+// import Spinner from "react-bootstrap/Spinner";
+import { Link } from "react-router-dom";
 
 class HomeCards extends Component {
-
   componentDidMount() {
-    this.props.fetchPets()
+    this.props.fetchPets();
   }
 
   handleLoading = () => {
     const { pets, loading } = this.props;
     if (loading) {
       return (
-        <Spinner className="spinner" animation="border" role="status">
-          <span className="sr-only">Finding Pets...</span>
-        </Spinner>
-      )
+        <>
+          <h2>Finding Pets...</h2>
+        </>
+      );
     } else {
       return (
         <>
-          <div className='pet-cards'>
-            {pets && pets.slice(0,4).map(pet => {
-              return <PetCard key={pet.id} pet={pet}/>
-            })}
+          <h2>Pets For Adoption Near You</h2>
+          <div className="pet-cards">
+            {pets &&
+              pets.slice(0, 4).map((pet) => {
+                return <PetCard key={pet.id} pet={pet} />;
+              })}
           </div>
-          <br></br>
-          <Link to="/pets"><span>See more...</span></Link>
+
+          <button className="btn">
+            <Link to="/pets">See More...</Link>
+          </button>
         </>
-      )
+      );
     }
-  }
+  };
 
   render() {
-    return (
-      <div className="HomeCards">
-        <h2>Furry Friends for Adoption Near You</h2>
-        <div className="cards-container">
-          {this.handleLoading()}
-        </div>
-      </div>
-    )
+    return <div className="HomeCards">{this.handleLoading()}</div>;
   }
 }
 
-const mapStateToProps = state => {
-  return ({
+const mapStateToProps = (state) => {
+  return {
     pets: state.petfinder.pets,
-    loading: state.petfinder.loading
-  })
-}
+    loading: state.petfinder.loading,
+  };
+};
 
-export default connect (mapStateToProps, { fetchPets })(HomeCards)
+export default connect(mapStateToProps, { fetchPets })(HomeCards);
