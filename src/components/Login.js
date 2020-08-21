@@ -33,6 +33,7 @@ class Login extends Component {
               <h2>Login</h2>
               <h3>To Meet Your New Furry Friend!</h3>
             </div>
+
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label>Email</label>

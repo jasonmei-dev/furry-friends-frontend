@@ -6,7 +6,7 @@
   --primary-color: #333;
   --secondary-color: #f7c08a;
   --light-color: #f3f3f3;
-  --nav-height: 7.2vh;
+  --nav-height: 51px;
 }
 
 * {
@@ -78,7 +78,8 @@ ul {
   top: 0;
   padding: 0 30px;
   z-index: 10;
-  height: 7.2vh;
+  /* height: 7.2vh; */
+  height: 51px;
 }
 
 #navbar .logo a {
@@ -145,7 +146,7 @@ ul {
   background: url("/images/showcase.jpg") no-repeat center center / cover;
   position: relative;
   /* height: 600px; */
-  height: calc(100vh - 7.2vh);
+  height: calc(100vh - var(--nav-height));
 }
 
 #welcome .welcome-content {
@@ -286,12 +287,11 @@ ul {
 
 #login-form .form-container,
 #signup-form .form-container {
-  width: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100%;
-  /* border: 1px solid black; */
+  width: 50%;
 }
 
 #login-form h2,
@@ -311,27 +311,49 @@ ul {
   text-align: center;
 }
 
-#login-form .form-group {
+#login-form .form-group,
+#signup-form .form-group {
   margin-bottom: 20px;
 }
 
-#login-form label {
+#login-form label,
+#signup-form label {
   display: block;
   margin-bottom: 5px;
 }
 
-#login-form input {
+#login-form input,
+#signup-form input {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
   border: 1px var(--primary-color) solid;
 }
 
-#login-form .btn {
+#login-form .btn,
+#signup-form .btn {
   border-radius: 15px;
 }
 
-/* Signup Form */
+#login-form p {
+  text-align: center;
+}
+
+#signup-form .form-container .form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#signup-form .form-container .flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#signup-form .form-container .flex-container .flex-group {
+  margin: 5px;
+}
 
 /* Old Styles */
 /* .App {
