@@ -293,6 +293,11 @@ ul {
   width: 200px;
 }
 
+.PetCard .btn {
+  border-radius: 15px;
+  width: 100%;
+}
+
 .card-image {
   height: 250px;
   width: 100%;
