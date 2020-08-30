@@ -29,7 +29,7 @@ class HomeCards extends Component {
               })}
           </div>
 
-          <button className="btn">
+          <button className="btn see-more">
             <Link to="/pets">See More...</Link>
           </button>
         </>
