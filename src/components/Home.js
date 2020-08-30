@@ -1,11 +1,11 @@
 import React from "react";
 import HomeCards from "../containers/HomeCards";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 // import PetsContainer from '../containers/PetsContainer';
 
 const Home = () => {
   return (
-    <div id="home" className="Home">
+    <div className="Home">
       <header className="showcase">
         <div className="showcase-content">
           <h1>Find Your New Furry Friend</h1>
@@ -15,7 +15,7 @@ const Home = () => {
           </p>
         </div>
       </header>
-      <section className="home-cards">
+      <section className="cards">
         <div className="container">
           <HomeCards />
         </div>

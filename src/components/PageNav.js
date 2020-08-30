@@ -1,14 +1,26 @@
-import React from "react"
-import Pagination from "react-bootstrap/Pagination"
+import React from "react";
+// import Pagination from "react-bootstrap/Pagination"
 
-const PageNav = ({previousPage, nextPage, page}) => {
+const PageNav = ({ previousPage, nextPage, page }) => {
   return (
-    <Pagination className="page-nav">
-      <Pagination.Prev onClick={previousPage} />
-      <Pagination.Item>Page: {page}</Pagination.Item>
-      <Pagination.Next onClick={nextPage} />
-    </Pagination>
-  )
-}
+    <div className="PageNav">
+      <div className="flex-item">
+        <i
+          className="arrow fas fa-chevron-circle-left fa-2x"
+          onClick={previousPage}
+        ></i>
+      </div>
+      <div className="flex-item">
+        <p>Page: {page}</p>
+      </div>
+      <div className="flex-item">
+        <i
+          className="arrow fas fa-chevron-circle-right fa-2x"
+          onClick={nextPage}
+        ></i>
+      </div>
+    </div>
+  );
+};
 
-export default PageNav
+export default PageNav;

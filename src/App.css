@@ -185,29 +185,29 @@ ul {
 }
 
 /* Home */
-.showcase {
+.Home .showcase {
   background: url("/images/showcase2.jpg") no-repeat center center / cover;
   position: relative;
   height: 400px;
 }
 
-.showcase .showcase-content {
+.Home .showcase .showcase-content {
   color: #fff;
   text-align: center;
   padding-top: 130px;
 }
 
-.showcase .showcase-content h1 {
+.Home .showcase .showcase-content h1 {
   font-size: 60px;
   line-height: 1.2;
 }
 
-.showcase .showcase-content p {
+.Home .showcase .showcase-content p {
   padding-bottom: 20px;
   line-height: 1.7;
 }
 
-.showcase:before {
+.Home .showcase:before {
   content: "";
   position: absolute;
   top: 0;
@@ -217,19 +217,62 @@ ul {
   background: rgba(0, 0, 0, 0.3);
 }
 
-.showcase * {
+.Home .showcase * {
   position: relative;
   z-index: 1;
 }
 
-.home-cards {
-  margin-bottom: 25px;
+.Home .cards,
+.SearchPage .cards {
+  margin-bottom: 30px;
 }
-.home-cards h2 {
+
+.Home .cards h2 {
   font-size: 30px;
   line-height: 1.6;
   margin: 25px 0;
   text-align: center;
+}
+
+.HomeCards,
+.PetsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.HomeCards .pet-cards,
+.PetsContainer .pet-cards {
+  margin-bottom: 30px;
+}
+
+.PetsContainer h1 {
+  margin: 40px 0;
+}
+
+/* Page Nav */
+.PageNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.PageNav .flex-item {
+  margin-right: 10px;
+}
+
+.PageNav p {
+  font-weight: bold;
+}
+
+.PageNav .arrow {
+  color: var(--primary-color);
+}
+
+.PageNav .arrow:hover {
+  color: var(--secondary-color);
+  cursor: pointer;
 }
 
 /* Pet Cards */
@@ -360,7 +403,7 @@ ul {
   margin: 5px;
 }
 
-/* PetCarousel */
+/* Image Slider */
 .ImageSlider {
   display: flex;
   align-content: center;

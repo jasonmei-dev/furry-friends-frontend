@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchPets, fetchType } from "../adapters/PetsAdapter";
 import PetCard from "../components/PetCard";
 import PageNav from "../components/PageNav";
-import Spinner from "react-bootstrap/Spinner";
+// import Spinner from "react-bootstrap/Spinner";
 
 class PetsContainer extends Component {
   constructor(props) {
@@ -97,19 +97,20 @@ class PetsContainer extends Component {
     if (loading) {
       return (
         <>
-          <h2>Finding Pets...</h2>
+          <h1>Finding Pets...</h1>
         </>
       );
     } else {
       return (
         <>
-          <h2>Pets For Adoption Near You</h2>
+          <h1>Pets For Adoption Near You</h1>
           <div className="pet-cards">
             {pets &&
               pets.map((pet) => {
                 return <PetCard key={pet.id} pet={pet} />;
               })}
           </div>
+
           <PageNav
             previousPage={this.previousPage}
             nextPage={this.nextPage}
