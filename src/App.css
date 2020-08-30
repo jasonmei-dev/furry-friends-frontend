@@ -318,23 +318,17 @@ ul {
   margin-bottom: 5px;
 }
 
-/* Footer */
-.Footer {
-  text-align: center;
-  background: #444;
-  color: #fff;
-  padding: 20px;
-}
-
 /* Login & Signup Page */
 #login-form,
-#signup-form {
+#signup-form,
+.UserEdit {
   background: url("/images/background-1.jpg") no-repeat center center / cover;
   height: calc(100vh - var(--nav-height));
 }
 
 #login-form .form-container,
-#signup-form .form-container {
+#signup-form .form-container,
+.UserEdit .form-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -343,7 +337,8 @@ ul {
 }
 
 #login-form h2,
-#signup-form h2 {
+#signup-form h2,
+.UserEdit h2 {
   font-size: 2rem;
   letter-spacing: 2px;
   margin-bottom: 10px;
@@ -360,18 +355,21 @@ ul {
 }
 
 #login-form .form-group,
-#signup-form .form-group {
+#signup-form .form-group,
+.UserEdit .form-group {
   margin-bottom: 20px;
 }
 
 #login-form label,
-#signup-form label {
+#signup-form label,
+.UserEdit label {
   display: block;
   margin-bottom: 5px;
 }
 
 #login-form input,
-#signup-form input {
+#signup-form input,
+.UserEdit input {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
@@ -379,27 +377,32 @@ ul {
 }
 
 #login-form .btn,
-#signup-form .btn {
+#signup-form .btn,
+.UserEdit .btn {
   border-radius: 15px;
+  width: 100%;
 }
 
 #login-form p {
   text-align: center;
 }
 
-#signup-form .form-container .form-content {
+#signup-form .form-container .form-content,
+.UserEdit .form-container .form-content {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#signup-form .form-container .flex-container {
+#signup-form .form-container .flex-container,
+.UserEdit .form-container .flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#signup-form .form-container .flex-container .flex-group {
+#signup-form .form-container .flex-container .flex-group,
+.UserEdit .form-container .flex-container .flex-group {
   margin: 5px;
 }
 
