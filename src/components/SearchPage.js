@@ -8,7 +8,6 @@ const SearchPage = ({ type }) => {
       <div className="container">
         <PetsContainer key={type} type={type} />
       </div>
-      <Footer />
     </div>
   );
 };

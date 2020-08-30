@@ -60,6 +60,10 @@ ul {
   color: var(--primary-color);
 }
 
+.btn:focus {
+  outline: none;
+}
+
 .login-btn,
 .signup-btn {
   margin: 0 10px;
@@ -234,6 +238,7 @@ ul {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
   align-items: center;
+  /* padding: 0 40px; */
 }
 
 .PetCard {
@@ -353,6 +358,149 @@ ul {
 
 #signup-form .form-container .flex-container .flex-group {
   margin: 5px;
+}
+
+/* PetCarousel */
+.ImageSlider {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  /* background-color: black; */
+}
+
+.ImageSlider img {
+  height: 450px;
+  width: 80vw;
+  object-fit: contain;
+  background-color: black;
+}
+
+.ImageSlider button {
+  padding: 0 20px;
+  width: 10vw;
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.ImageSlider button:hover {
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.ImageSlider button:focus {
+  outline: none;
+}
+
+/* PetDetails */
+.PetDetails {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 5px 5px 12px #ccc;
+  padding: 30px 50px;
+}
+
+.PetDetails h1 {
+  margin-bottom: 20px;
+}
+
+.PetDetails .pet-info {
+  border-bottom: solid 1px black;
+  padding-bottom: 20px;
+}
+
+.PetDetails .pet-info li,
+.PetDetails .pet-contact li {
+  margin-bottom: 10px;
+}
+
+.PetDetails .pet-contact h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Pet Page */
+.PetPage {
+  background-color: var(--light-color);
+}
+
+.PetPage .flex-container {
+  display: flex;
+  /* align-content: center; */
+  justify-content: center;
+  align-items: center;
+}
+
+.PetPage .flex-item {
+  margin: 50px 30px;
+}
+
+.PetPage .btn {
+  display: block;
+  width: 200px;
+  border-radius: 30px;
+  padding: 20px 40px;
+  text-transform: uppercase;
+  /* border: 1px solid blue; */
+  margin-bottom: 30px;
+}
+
+/* Profile  */
+.Profile {
+  background-color: var(--light-color);
+  /* height: calc(100vh - var(--nav-height)); */
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  /* padding: 30px 0; */
+  overflow: auto;
+}
+
+.Profile .flex-item:nth-child(1) {
+  margin-top: 50px;
+}
+
+.Profile .flex-item {
+  margin-bottom: 50px;
+}
+
+/* UserInfo */
+.UserInfo {
+  /* border: 1px solid black; */
+  box-shadow: 5px 5px 12px #ccc;
+  background-color: white;
+  border-radius: 15px;
+  padding: 50px 0;
+  width: 950px;
+}
+
+.UserInfo h1 {
+  margin-bottom: 20px;
+}
+
+.UserInfo li {
+  margin-bottom: 10px;
+}
+
+.UserInfo button {
+  float: right;
+}
+
+/* MyLikes */
+.MyLikes {
+  box-shadow: 5px 5px 12px #ccc;
+  background-color: white;
+  border-radius: 15px;
+  padding: 50px 30px;
+  /* width: 700px; */
+}
+
+.MyLikes h1 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Old Styles */

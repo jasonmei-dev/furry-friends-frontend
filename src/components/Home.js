@@ -20,7 +20,6 @@ const Home = () => {
           <HomeCards />
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
