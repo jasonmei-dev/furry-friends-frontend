@@ -1,17 +1,17 @@
-import React from 'react';
-import Carousel from 'react-bootstrap/Carousel';
+import React from "react";
 
 const PetCarousel = ({ currentPet }) => {
-  const { photos } = currentPet
+  const { photos } = currentPet;
 
   return (
-    <Carousel className="carousel">
-      {photos.length > 0
-        ? photos.map((photo, index) => <Carousel.Item key={index + 1}><img className="pet-image" alt={index + 1} src={photo.full} /></Carousel.Item>)
-        : <Carousel.Item><img className="pet-image" alt="default" src="/images/no-photo.jpg" /></Carousel.Item>
-      }
-    </Carousel>
-  )
-}
+    <div className="carousel">
+      {photos.length > 0 ? (
+        photos.map((photo, index) => <img alt={index + 1} src={photo.full} />)
+      ) : (
+        <img alt="default" src="/images/no-photo.jpg" />
+      )}
+    </div>
+  );
+};
 
 export default PetCarousel;
