@@ -1,6 +1,5 @@
 import React from "react";
 import PetsContainer from "../containers/PetsContainer";
-// import Footer from "./Footer";
 
 const SearchPage = ({ type }) => {
   return (

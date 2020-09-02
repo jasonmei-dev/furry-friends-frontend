@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { fetchPets, fetchType } from "../adapters/PetsAdapter";
 import PetCard from "../components/PetCard";
 import PageNav from "../components/PageNav";
-// import Spinner from "react-bootstrap/Spinner";
 
 class PetsContainer extends Component {
   constructor(props) {

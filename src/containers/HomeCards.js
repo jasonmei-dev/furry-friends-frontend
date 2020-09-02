@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPets } from "../adapters/PetsAdapter";
 import PetCard from "../components/PetCard";
-// import Spinner from "react-bootstrap/Spinner";
 import { Link } from "react-router-dom";
 
 class HomeCards extends Component {

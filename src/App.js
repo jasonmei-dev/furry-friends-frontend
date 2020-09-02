@@ -9,8 +9,6 @@ import Home from "./components/Home";
 import Welcome from "./components/Welcome";
 import SearchPage from "./components/SearchPage";
 import Login from "./components/Login";
-// import PetsContainer from "./containers/PetsContainer";
-// import HomeCards from "./containers/HomeCards";
 import Profile from "./containers/Profile";
 import PetPage from "./containers/PetPage";
 import UserEdit from "./components/UserEdit";

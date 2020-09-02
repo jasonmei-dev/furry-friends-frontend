@@ -1,7 +1,5 @@
 import React from "react";
 import HomeCards from "../containers/HomeCards";
-// import Footer from "./Footer";
-// import PetsContainer from '../containers/PetsContainer';
 
 const Home = () => {
   return (

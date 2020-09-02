@@ -2,7 +2,6 @@ import React from "react";
 
 const PetDetails = ({ currentPet }) => {
   const { name, species, breeds, age, gender, size, contact } = currentPet;
-  // console.log(currentPet)
 
   return (
     <div className="PetDetails">
