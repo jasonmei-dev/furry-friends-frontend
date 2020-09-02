@@ -82,8 +82,7 @@ ul {
   top: 0;
   padding: 0 30px;
   z-index: 10;
-  /* height: 7.2vh; */
-  height: 51px;
+  height: var(--nav-height);
 }
 
 #navbar .logo a {
@@ -149,7 +148,6 @@ ul {
 #welcome {
   background: url("/images/showcase.jpg") no-repeat center center / cover;
   position: relative;
-  /* height: 600px; */
   height: calc(100vh - var(--nav-height));
 }
 
@@ -285,7 +283,6 @@ ul {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
   align-items: center;
-  /* padding: 0 40px; */
 }
 
 .PetCard {
@@ -298,7 +295,6 @@ ul {
 }
 
 .PetCard .btn {
-  /* border-radius: 15px; */
   width: 100%;
 }
 
@@ -431,7 +427,6 @@ ul {
   display: flex;
   align-content: center;
   justify-content: center;
-  /* background-color: black; */
 }
 
 .ImageSlider img {
@@ -492,7 +487,6 @@ ul {
 
 .PetPage .flex-container {
   display: flex;
-  /* align-content: center; */
   justify-content: center;
   align-items: center;
 }
@@ -507,21 +501,24 @@ ul {
   border-radius: 30px;
   padding: 20px 40px;
   text-transform: uppercase;
-  /* border: 1px solid blue; */
   margin-bottom: 30px;
+}
+
+.PetPage h2 {
+  font-size: 30px;
+  line-height: 1.6;
+  margin: 25px 0;
+  text-align: center;
 }
 
 /* Profile  */
 .Profile {
   background-color: var(--light-color);
-  /* height: calc(100vh - var(--nav-height)); */
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;
-  /* padding: 30px 0; */
   overflow: auto;
 }
 
@@ -535,7 +532,6 @@ ul {
 
 /* UserInfo */
 .UserInfo {
-  /* border: 1px solid black; */
   box-shadow: 5px 5px 12px #ccc;
   background-color: white;
   border-radius: 15px;
@@ -561,61 +557,9 @@ ul {
   background-color: white;
   border-radius: 15px;
   padding: 50px 30px;
-  /* width: 700px; */
 }
 
 .MyLikes h1 {
   text-align: center;
   margin-bottom: 20px;
 }
-
-/* Old Styles */
-/* .App {
-  text-align: center;
-}
-
-.Login,
-.SignUp,
-.UserEdit {
-  border: solid;
-  border-radius: 20px;
-  width: 450px;
-  padding: 20px;
-  display: inline-block;
-  margin: 100px auto;
-  background: #fff;
-}
-
-.page-nav {
-  margin: 20px;
-} */
-
-/* .cards-container {
-  width: 950px;
-  display: inline-block;
-} */
-
-/* .pet-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 2rem 2rem;
-  margin-right: 2rem;
-  margin-left: 2rem;
-} */
-
-/* .spinner {
-  display: inline-block;
-  margin: 100px auto;
-} */
-/* .carousel {
-  background: black;
-} */
-
-/* .pet-image {
-  height: 400px;
-  object-fit: contain;
-} */
-
-/* ul {
-  list-style-type: none;
-} */
