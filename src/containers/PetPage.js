@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import PetDetails from "../components/PetDetails";
-// import PetCarousel from "../components/PetCarousel";
 import { connect } from "react-redux";
 import { getCurrentPet } from "../adapters/PetsAdapter";
 import { addNewLike } from "../adapters/LikesAdapter";
 import { clearCurrentPet } from "../actions/currentPet";
-import Spinner from "react-bootstrap/Spinner";
 import ImageSlider from "../components/ImageSlider";
 
 class PetPage extends Component {
@@ -23,11 +21,7 @@ class PetPage extends Component {
     const { pet, loading, addNewLike, history } = this.props;
 
     if (loading || pet === null) {
-      return (
-        <Spinner className="spinner" animation="border" role="status">
-          <span className="sr-only">Loading...</span>
-        </Spinner>
-      );
+      return <h2>Loading...</h2>;
     } else {
       return (
         <div className="PetPage">
