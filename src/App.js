@@ -31,7 +31,7 @@ class App extends React.Component {
               exact
               path="/"
               render={() => {
-                if (currentUser.id) {
+                if (currentUser) {
                   return <Home />;
                 } else {
                   return <Welcome />;

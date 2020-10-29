@@ -77,7 +77,7 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
 
 const mapStateToProps = ({ currentUser }) => {
   return {
-    loggedIn: currentUser.id,
+    loggedIn: currentUser,
     currentUser,
   };
 };

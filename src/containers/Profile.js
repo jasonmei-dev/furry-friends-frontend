@@ -10,10 +10,10 @@ class Profile extends Component {
     return (
       <div className="Profile">
         <div className="container flex-item">
-          {currentUser.id && <UserInfo currentUser={currentUser} />}
+          {currentUser && <UserInfo currentUser={currentUser} />}
         </div>
         <div className="container flex-item">
-          {currentUser.id && <MyLikes />}
+          {currentUser && <MyLikes />}
         </div>
       </div>
     );
