@@ -21,9 +21,8 @@ const MyLikes = ({ myLikes }) => {
   );
 };
 
-const mapStateToProps = ({ myLikes }) => {
-  return {
-    myLikes,
-  };
-};
+const mapStateToProps = ({ myLikes }) => ({
+  myLikes
+})
+
 export default connect(mapStateToProps)(MyLikes);

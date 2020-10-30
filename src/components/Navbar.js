@@ -19,17 +19,17 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
     return (
       <nav id="navbar">
         <h1 className="logo">
-          <Link to="/">
+          <Link to="/" key="home">
             <i className="fas fa-paw"></i> Furry Friends
           </Link>
         </h1>
         <ul>
           <li>
-            <Link to="/login">Log In</Link>
+            <Link to="/login" key="login">Log In</Link>
           </li>
 
           <li>
-            <Link to="/signup">Sign Up</Link>
+            <Link to="/signup" key="signup">Sign Up</Link>
           </li>
         </ul>
       </nav>
@@ -47,13 +47,12 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
         <li>
           Find By Type <i className="fas fa-angle-down"></i>
           <ul>
-            {types.map((type) => {
+            {types.map((type, idx) => {
               let typeFixed = type.replace(/\s/gi, "").replace(/\W/gi, "-");
               return (
-                <li>
+                <li key={types[idx]}>
                   <Link
                     to={`/types/${typeFixed.toLowerCase()}`}
-                    key={typeFixed}
                   >
                     {type}
                   </Link>
@@ -75,11 +74,9 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
   );
 };
 
-const mapStateToProps = ({ currentUser }) => {
-  return {
-    loggedIn: currentUser,
-    currentUser,
-  };
-};
+const mapStateToProps = ({ currentUser }) => ({
+  loggedIn: !!currentUser,
+  currentUser,
+});
 
 export default connect(mapStateToProps, { logout })(NavBar);

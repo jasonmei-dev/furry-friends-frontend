@@ -1,17 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 const UserInfo = ({ currentUser }) => {
-  const { attributes } = currentUser;
-  const {
-    first_name,
-    last_name,
-    email,
-    city,
-    state,
-    country,
-    postcode,
-  } = attributes;
+  const { first_name, last_name, email, city, state, country, postcode } = currentUser.attributes;
 
   return (
     <div className="UserInfo">
@@ -39,4 +31,8 @@ const UserInfo = ({ currentUser }) => {
   );
 };
 
-export default UserInfo;
+const mapStateToProps = ({currentUser}) => ({
+  currentUser
+});
+
+export default connect(mapStateToProps)(UserInfo);
