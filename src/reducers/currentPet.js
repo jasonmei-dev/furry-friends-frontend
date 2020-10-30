@@ -10,8 +10,8 @@ export default (state = initialState, action) => {
     case "SET_CURRENT_PET":
       return {...state, pet: action.pet, loading: false };
     case "CLEAR_CURRENT_PET":
-      return initialState
+      return initialState;
     default:
-      return state
+      return state;
   }
 }
