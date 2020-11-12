@@ -4,15 +4,15 @@ import { connect } from "react-redux";
 import { getCurrentUser } from "./adapters/SessionsAdapter";
 import { fetchLikes } from "./adapters/LikesAdapter";
 
-import NavBar from "./components/Navbar";
-import SignUp from "./components/SignUp";
-import Home from "./components/Home";
-import Welcome from "./components/Welcome";
-import SearchPage from "./components/SearchPage";
-import Login from "./components/Login";
-import Profile from "./containers/Profile";
-import PetPage from "./containers/PetPage";
-import UserEdit from "./components/UserEdit";
+import NavBar from "./components/layout/Navbar";
+import SignUp from "./components/auth/SignUp";
+import Login from "./components/auth/Login";
+import Home from "./components/pages/Home";
+import Welcome from "./components/pages/Welcome";
+import SearchPage from "./components/pages/SearchPage";
+import Profile from "./components/user/Profile";
+import PetPage from "./components/pets/PetPage";
+import UserEdit from "./components/user/UserEdit";
 import "./App.css";
 
 const App = ({ getCurrentUser, fetchLikes, loggedIn }) => {
