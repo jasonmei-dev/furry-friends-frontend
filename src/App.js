@@ -10,7 +10,7 @@ import Login from "./components/auth/Login";
 import Home from "./components/pages/Home";
 import Welcome from "./components/pages/Welcome";
 import SearchPage from "./components/pages/SearchPage";
-import Profile from "./components/user/Profile";
+import UserProfile from "./components/user/UserProfile";
 import PetPage from "./components/pets/PetPage";
 import UserEdit from "./components/user/UserEdit";
 import "./App.css";
@@ -38,7 +38,7 @@ const App = ({ getCurrentUser, fetchLikes, loggedIn }) => {
               }
             }}
           />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile" component={UserProfile} />
           <Route exact path="/profile/edit" component={UserEdit} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />

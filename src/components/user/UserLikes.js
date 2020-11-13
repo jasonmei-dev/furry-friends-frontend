@@ -2,7 +2,7 @@ import React from "react";
 import PetCard from "../pets/PetCard";
 import { connect } from "react-redux";
 
-const Favorites = ({ myLikes }) => {
+const UserLikes = ({ myLikes }) => {
   const petCards = myLikes.map((like) => (
     <PetCard
       key={like.data.attributes.pet.pet_api_id}
@@ -25,4 +25,4 @@ const mapStateToProps = ({ myLikes }) => ({
   myLikes
 })
 
-export default connect(mapStateToProps)(Favorites);
+export default connect(mapStateToProps)(UserLikes);
