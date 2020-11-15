@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import UserInfo from "./UserInfo";
-import UserLikes from "./UserLikes";
+import UserInfo from "../user/UserInfo";
+import UserLikes from "../user/UserLikes";
 
 const UserProfile = ({ loggedIn }) => {
   return (
@@ -16,10 +16,8 @@ const UserProfile = ({ loggedIn }) => {
   );
 }
 
-const mapStateToProps = ({ currentUser }) => {
-  return {
-    loggedIn: !!currentUser,
-  };
-};
+const mapStateToProps = ({ currentUser }) => ({
+  loggedIn: !!currentUser,
+});
 
 export default connect(mapStateToProps)(UserProfile);

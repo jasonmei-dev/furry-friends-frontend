@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchPets, fetchType } from "../../adapters/PetsAdapter";
 import PetCard from "./PetCard";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const PetCards = ({pets, loading, fetchPets, type }) => {
   const pathname = window.location.pathname
@@ -49,9 +49,6 @@ const PetCards = ({pets, loading, fetchPets, type }) => {
                 return <PetCard key={pet.id} pet={pet} />;
               })}
           </div>
-          <button className="btn see-more">
-            <Link to="/pets">See More...</Link>
-          </button>
         </div>
       );
     }

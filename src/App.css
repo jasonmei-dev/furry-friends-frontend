@@ -234,6 +234,10 @@ ul {
   text-align: center;
 }
 
+.Home .see-more {
+  width: 100%;
+}
+
 .HomeCards,
 .PetsContainer {
   display: flex;
@@ -251,30 +255,28 @@ ul {
   margin: 40px 0;
 }
 
-.HomeCards .see-more {
-  width: 88%;
-}
-
-/* Page Nav */
-.PageNav {
+/* Pagination */
+.Pagination {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
+  margin-bottom: 40px;
 }
 
-.PageNav .flex-item {
+.Pagination .flex-item {
   margin-right: 10px;
 }
 
-.PageNav p {
+.Pagination p {
   font-weight: bold;
 }
 
-.PageNav .arrow {
+.Pagination .arrow {
   color: var(--primary-color);
 }
 
-.PageNav .arrow:hover {
+.Pagination .arrow:hover {
   color: var(--secondary-color);
   cursor: pointer;
 }

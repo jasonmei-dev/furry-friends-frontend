@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { getCurrentPet } from "../../adapters/PetsAdapter";
 import { addNewLike } from "../../adapters/LikesAdapter";
 import { clearCurrentPet } from "../../actions/currentPet";
-import ImageSlider from "./ImageSlider";
-import PetDetails from "./PetDetails";
+import ImageSlider from "../pets/ImageSlider";
+import PetDetails from "../pets/PetDetails";
 
 const PetPage = ({ id, pet, loading, addNewLike, getCurrentPet, clearCurrentPet, history}) => {
   useEffect(() => {

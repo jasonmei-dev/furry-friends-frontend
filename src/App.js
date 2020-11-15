@@ -8,14 +8,14 @@ import NavBar from "./components/layout/Navbar";
 import SignUp from "./components/auth/SignUp";
 import Login from "./components/auth/Login";
 import Home from "./components/pages/Home";
-import Welcome from "./components/pages/Welcome";
+// import Welcome from "./components/pages/Welcome";
 import SearchPage from "./components/pages/SearchPage";
-import UserProfile from "./components/user/UserProfile";
-import PetPage from "./components/pets/PetPage";
+import UserProfile from "./components/pages/UserProfile";
 import UserEdit from "./components/user/UserEdit";
+import PetPage from "./components/pages/PetPage";
 import "./App.css";
 
-const App = ({ getCurrentUser, fetchLikes, loggedIn }) => {
+const App = ({ getCurrentUser, fetchLikes }) => {
   useEffect(() => {
     getCurrentUser();
     fetchLikes();
@@ -27,7 +27,7 @@ const App = ({ getCurrentUser, fetchLikes, loggedIn }) => {
       <Fragment>
         <NavBar />
         <Switch>
-          <Route
+          {/* <Route
             exact
             path="/"
             render={() => {
@@ -37,7 +37,8 @@ const App = ({ getCurrentUser, fetchLikes, loggedIn }) => {
                 return <Welcome />;
               }
             }}
-          />
+          /> */}
+          <Route exact path="/" component={Home} />
           <Route exact path="/profile" component={UserProfile} />
           <Route exact path="/profile/edit" component={UserEdit} />
           <Route exact path="/login" component={Login} />
@@ -65,8 +66,8 @@ const App = ({ getCurrentUser, fetchLikes, loggedIn }) => {
   );
 }
 
-const mapStateToProps = ({ currentUser }) => ({
-  loggedIn: !!currentUser,
-});
+// const mapStateToProps = ({ currentUser }) => ({
+//   loggedIn: !!currentUser,
+// });
 
-export default connect(mapStateToProps, { getCurrentUser, fetchLikes })(App);
+export default connect(null, { getCurrentUser, fetchLikes })(App);

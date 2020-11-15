@@ -2,7 +2,7 @@ import React from "react";
 
 const Pagination = ({ previousPage, nextPage, page }) => {
   return (
-    <div className="PageNav">
+    <div className="Pagination">
       <div className="flex-item">
         <i
           className="arrow fas fa-chevron-circle-left fa-2x"

@@ -33,7 +33,7 @@ export const getCurrentPet = petId => {
   }
 }
 
-export const fetchType = (type, page) => {
+export const fetchType = (type, page=1) => {
   return dispatch => {
     dispatch(loadingPets());
     fetch("http://localhost:3001/api/v1/get_type", {

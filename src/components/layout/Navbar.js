@@ -9,10 +9,10 @@ const NavBar = ({ loggedIn, currentUser, logout }) => {
     "Cats",
     "Rabbits",
     "Small & Furry",
-    "Horses",
-    "Birds",
-    "Scales, Fins & Other",
-    "Barnyard",
+    // "Horses",
+    // "Birds",
+    // "Scales, Fins & Other",
+    // "Barnyard",
   ];
 
   if (!loggedIn) {

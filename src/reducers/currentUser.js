@@ -1,7 +1,14 @@
 const initialState = null
 
+// const initialState = {
+//   user: null,
+//   loading: false
+// }
+
 export default (state = initialState, action) => {
   switch (action.type) {
+    // case "LOADING_USER":
+    //   return {...state, user: {...state.user}, loading: true, }
     case "SET_CURRENT_USER":
       if (action.user) {
         return action.user

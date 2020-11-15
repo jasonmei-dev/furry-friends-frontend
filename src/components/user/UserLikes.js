@@ -10,15 +10,19 @@ const UserLikes = ({ myLikes }) => {
       pet={like.data.attributes.pet}
     />
   ));
-
-  return (
-    <div className="MyLikes">
-      <h1>My Favorites</h1>
-      <div className="grid-container">
-        <div className="pet-cards">{petCards}</div>
+  
+  if (myLikes.length < 1) {
+    return null
+  } else {
+    return (
+      <div className="MyLikes">
+        <h1>My Favorites</h1>
+        <div className="grid-container">
+          <div className="pet-cards">{petCards}</div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 const mapStateToProps = ({ myLikes }) => ({
