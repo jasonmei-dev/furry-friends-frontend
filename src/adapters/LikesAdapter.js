@@ -20,7 +20,7 @@ export const addNewLike = pet => {
     const petData = {
       pet
     }
-    fetch("http://localhost:3001/api/v1/likes", {
+    fetch("https://furry-friends-api.herokuapp.com/api/v1/likes", {
       credentials: "include",
       method: "POST",
       headers: {
@@ -51,7 +51,7 @@ export const addNewLike = pet => {
 
 export const deleteMyLike = likeId => {
   return dispatch => {
-    fetch(`http://localhost:3001/api/v1/likes/${likeId}`, {
+    fetch(`https://furry-friends-api.herokuapp.com/api/v1/likes/${likeId}`, {
       credentials: "include",
       method: "DELETE",
       headers: {

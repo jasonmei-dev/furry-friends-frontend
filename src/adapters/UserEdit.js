@@ -2,7 +2,7 @@ import { updateCurrentUser } from '../actions/currentUser';
 
 export const editUser = (currentUser, formData) => {
   return dispatch => {
-    fetch(`http://localhost:3001/api/v1/users/${currentUser.id}`, {
+    fetch(`https://furry-friends-api.herokuapp.com/api/v1/users/${currentUser.id}`, {
       credentials: "include",
       method: "PUT",
       headers: {

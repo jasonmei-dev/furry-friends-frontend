@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 export const login = (credentials, history) => {
   return (dispatch) => {
-    fetch("http://localhost:3001/api/v1/login", {
+    fetch("https://furry-friends-api.herokuapp.com/api/v1/login", {
       credentials: "include",
       method: "POST",
       headers: {
@@ -34,7 +34,7 @@ export const login = (credentials, history) => {
 
 export const getCurrentUser = () => {
   return (dispatch) => {
-    fetch("http://localhost:3001/api/v1/get_current_user", {
+    fetch("https://furry-friends-api.herokuapp.com/api/v1/get_current_user", {
       credentials: "include",
       method: "GET",
       headers: {
@@ -52,7 +52,7 @@ export const logout = (event) => {
     dispatch(clearCurrentUser());
     dispatch(clearPets());
     dispatch(clearLikes());
-    fetch("http://localhost:3001/api/v1/logout", {
+    fetch("https://furry-friends-api.herokuapp.com/api/v1/logout", {
       credentials: "include",
       method: "DELETE",
     });
@@ -64,7 +64,7 @@ export const signup = (formData, history) => {
     const userInfo = {
       user: formData,
     };
-    fetch("http://localhost:3001/api/v1/signup", {
+    fetch("https://furry-friends-api.herokuapp.com/api/v1/signup", {
       credentials: "include",
       method: "POST",
       headers: {

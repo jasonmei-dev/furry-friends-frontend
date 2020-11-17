@@ -4,7 +4,7 @@ import { loadingPet, setCurrentPet } from '../actions/currentPet';
 export const fetchPets = (page=1) => {
   return dispatch => {
     dispatch(loadingPets());
-    fetch("http://localhost:3001/api/v1/pets", {
+    fetch("https://furry-friends-api.herokuapp.com/api/v1/pets", {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export const fetchPets = (page=1) => {
 export const getCurrentPet = petId => {
   return dispatch => {
     dispatch(loadingPet());
-    fetch(`http://localhost:3001/api/v1/pets/${petId}`, {
+    fetch(`https://furry-friends-api.herokuapp.com/api/v1/pets/${petId}`, {
       credentials: "include",
       method: "GET",
       headers: {
@@ -36,7 +36,7 @@ export const getCurrentPet = petId => {
 export const fetchType = (type, page=1) => {
   return dispatch => {
     dispatch(loadingPets());
-    fetch("http://localhost:3001/api/v1/get_type", {
+    fetch("https://furry-friends-api.herokuapp.com/api/v1/get_type", {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
