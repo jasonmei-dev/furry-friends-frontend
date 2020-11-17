@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 
 export const fetchLikes = () => {
   return dispatch => {
-    fetch("http://localhost:3001/api/v1/likes", {
+    fetch("https://furry-friends-api.herokuapp.com/api/v1/likes", {
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
