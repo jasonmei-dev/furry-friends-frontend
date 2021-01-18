@@ -2,6 +2,8 @@
 
 Furry Friends is a single page web application where you can search through adoptable pets and view pets' details and contact information. The user has the ability to "favorite" a pet and add it to their profile page, as well as edit the user information.
 
+Live Heroku app can be found here: https://furry-friends-app.herokuapp.com/
+
 ### Installation & Usage
 
 1. Open and run `$ npm install`
